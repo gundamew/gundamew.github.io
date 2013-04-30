@@ -1,3 +1,1 @@
-[http://gundamew.github.io/](http://gundamew.github.io/)
-
-My user page on GitHub
+My user page on GitHub: [http://gundamew.github.io/](http://gundamew.github.io/)
