@@ -26,13 +26,12 @@
   -ms-font-smoothing: antialiased;
   -o-font-smoothing: antialiased;
   font-smoothing: antialiased;
-  padding-right: 10px;
 }
 
 .lsf-icon:before {
   content: attr(title);
   margin: 0 5px;
-  font-size: 150%;
+  font-size: 1000%;
 }
 
 /* Normal */
@@ -47,8 +46,18 @@ body {
   font-weight: 400;
 }
 
-ul {
-  list-style: none;
+header, section, footer {
+  text-align: center;
+}
+
+.title {
+  font-size: 500%;
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+
+.sub-title {
+  font-size: 200%;
 }
 
 a {
@@ -76,10 +85,6 @@ a.blogger:hover {
   color: #FE6602;
 }
 
-.wrapper {
-  
-}
-
-footer {
-  font-size: 0.8em;
+.spacing-horizontal {
+  margin: 0 20px;
 }
