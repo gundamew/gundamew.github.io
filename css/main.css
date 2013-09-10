@@ -111,14 +111,12 @@ hr {
     color: #888;
 }
 
-.job-now {
+.work-title,
+.edu-title {
+    margin-bottom: 4px;
 }
 
-.job,
-.edu {
-}
-
-.job-desc,
+.work-desc,
 .edu-desc {
     margin: 0 auto;
     width: 60%;
