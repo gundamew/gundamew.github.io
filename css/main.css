@@ -64,20 +64,20 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
-section {
+header,
+section,
+footer {
     text-align: center;
 }
 
-a:link {
-    text-decoration: none;
-}
-a:visited {
-    text-decoration: none;
-}
+a:link,
+a:visited,
 a:active {
+    color: #444;
     text-decoration: none;
 }
 a:hover {
+    color: #222;
     text-decoration: underline;
 }
 
@@ -86,7 +86,8 @@ hr {
     width: 40%;
 }
 
-.profile {
+.profile,
+.resume {
     margin: 40px auto;
 }
 
@@ -108,6 +109,19 @@ hr {
 
 .profile-account a {
     color: #888;
+}
+
+.job-now {
+}
+
+.job,
+.edu {
+}
+
+.job-desc,
+.edu-desc {
+    margin: 0 auto;
+    width: 60%;
 }
 
 /* ==========================================================================
