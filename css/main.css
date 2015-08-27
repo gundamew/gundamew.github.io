@@ -89,8 +89,7 @@ p {
     line-height: 2em;
 }
 
-.profile,
-.resume {
+.profile {
     margin: 20px auto;
 }
 
@@ -108,21 +107,6 @@ p {
             transition: 0.2s;
     width: 200px;
     margin: 20px;
-}
-
-span.period {
-    color: #999;
-}
-
-.work-title,
-.edu-title {
-    margin-bottom: 4px;
-}
-
-.work-desc,
-.edu-desc {
-    margin: 0 auto;
-    width: 60%;
 }
 
 .icon-list {
