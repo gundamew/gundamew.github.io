@@ -73,13 +73,11 @@ footer {
 a:link,
 a:visited,
 a:active {
-    color: #444;
     text-decoration: none;
 }
 
 a:hover {
     color: #222;
-    text-decoration: underline;
 }
 
 hr {
@@ -125,6 +123,26 @@ span.period {
 .edu-desc {
     margin: 0 auto;
     width: 60%;
+}
+
+.icon-list {
+    margin: 0 auto;
+    padding: 0 auto;
+    text-align: center;
+}
+
+.icon-list li {
+    display: inline;
+    list-style-type: none;
+    padding-right: 20px;
+}
+
+.icon {
+    color: #999;
+}
+
+.label {
+    display: none;
 }
 
 .copyright {
