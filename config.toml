@@ -1,0 +1,13 @@
+baseurl = "http://bschen.tw/"
+languageCode = "zh-cmn-Hant"
+title = "bschen"
+theme = "hugo-classic"
+enableEmoji = true
+footnotereturnlinkcontents = "↩"
+
+[permalinks]
+    post = "/posts/:slug/"
+
+[params]
+    footer = "Created with [Hugo](https://gohugo.io/) and [Hugo-Classic](https://themes.gohugo.io/hugo-classic/)"
+    custom_css = ["css/theme-override.css"]
