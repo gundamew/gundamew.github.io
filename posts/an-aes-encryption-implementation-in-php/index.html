@@ -57,7 +57,7 @@
 
 <script src="https://gist.github.com/gundamew/2f3705db4c421f1ddd2655a72697abc4.js"></script>
 
-<p>實作時還發生了一個小烏龍：由於跟別人事先約定好要用 AES 128 加密，可是共用的密鑰長度卻是 32 個字元（256 bits），讓我在用 <code>AES-128-CBC</code> 測試時一直沒辦法解密出正確的原文，之後心血來潮改用 <code>AES-256-CBC</code> 測試後就成功解密了。找資料時看到<a href="http://stackoverflow.com/a/4413290/6404056">別人遇到的類似狀況</a>，我才確定問題出在密鑰的長度上。</p>
+<p>實作時還發生了一個小烏龍：由於跟別人事先約定好要用 AES 128 加密，可是共用的密鑰長度卻是 32 個字元（256 bits），讓我在用 <code>AES-128-CBC</code> 測試時一直沒辦法解密出正確的原文，之後心血來潮改用 <code>AES-256-CBC</code> 測試後就成功解密了。找資料時看到<a href="http://stackoverflow.com/a/4413290/6404056">別人遇到的類似狀況</a>，我才確定問題出在密鑰的長度上</p>
 
 <ul>
 <li><a href="https://www.urbaninsight.com/2012/06/13/encrypt-and-decrypt-strings-php">Encrypt and decrypt strings in PHP | Urban Insight</a></li>

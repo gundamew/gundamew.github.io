@@ -3,8 +3,18 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://bschen.tw/posts/add-xdebug-to-alpine-linux-docker-container/</loc>
+    <lastmod>2018-01-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://bschen.tw/posts/loading-classes-without-namespace-via-composer/</loc>
     <lastmod>2017-10-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://bschen.tw/posts/edit-crontab-with-vim-on-macos/</loc>
+    <lastmod>2016-06-16T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -18,18 +28,23 @@
   </url>
   
   <url>
+    <loc>http://bschen.tw/posts/xss-case-study/</loc>
+    <lastmod>2014-06-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://bschen.tw/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://bschen.tw/</loc>
-    <lastmod>2017-10-28T00:00:00+00:00</lastmod>
+    <lastmod>2018-01-17T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>http://bschen.tw/posts/</loc>
-    <lastmod>2017-10-28T00:00:00+00:00</lastmod>
+    <lastmod>2018-01-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

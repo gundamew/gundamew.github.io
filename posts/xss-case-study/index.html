@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hant">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>XSS Case Study | bschen</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="http://bschen.tw/css/theme-override.css">
+    <header>
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <nav>
+    <ul>
+      
+      
+      <li class="pull-left ">
+        <a href="http://bschen.tw/">/home/bschen</a>
+      </li>
+      
+
+      
+
+    </ul>
+  </nav>
+</header>
+
+  </head>
+
+  <body>
+    <br/>
+
+<div class="article-meta">
+<h1><span class="title">XSS Case Study</span></h1>
+
+<h2 class="date">2014/06/27</h2>
+<p class="terms">
+  
+  
+  
+  
+  
+</p>
+</div>
+
+
+
+<main>
+
+
+<h2 id="prologue">Prologue</h2>
+
+<p>在此對我於某公司經手過的攻擊案例做一份概略的整理報告。以下列出的攻擊方式不一定會單獨出現，多半都是混合使用</p>
+
+<h2 id="cases">Cases</h2>
+
+<h3 id="url-encoded-attack">URL Encoded Attack</h3>
+
+<p>攻擊者向使用者發送一段訊息，訊息裡夾帶一段類似網址的字串：<code>www&amp;#46really-bad&amp;#46com</code></p>
+
+<p>當使用者讀取到這段訊息，<code>&amp;#46</code> 被瀏覽器解碼變成 <code>.</code> 之後，顯示出來的就會是 <code>www.really-bad.com</code> 這樣完整的網址</p>
+
+<p>其中還有一種變體是針對 <a href="https://www.ietf.org/rfc/rfc3490.txt">RFC 3490</a> 的實作所進行的攻擊方式：</p>
+
+<blockquote>
+<p>Whenever dots are used as label separators, the following characters MUST be recognized as dots: U+002E (full stop), U+3002 (ideographic full stop), U+FF0E (fullwidth full stop), U+FF61 (halfwidth ideographic full stop).</p>
+</blockquote>
+
+<p>在網址中插入能被轉換為 <code>.</code> 的字元，例如 <code>www。really-bad。com</code>，這樣也會被瀏覽器解碼為有效的網址：<code>www.really-bad.com</code></p>
+
+<h3 id="deceptive-phishing">Deceptive Phishing</h3>
+
+<p>攻擊者向使用者發送一段訊息，內容含有與某公司網址極為相似的假網址：</p>
+
+<blockquote>
+<p>您好，我已經下標了，麻煩確認一下這款是否還有現貨？</p>
+
+<p><a href="http://shops.com.tw/item/xxxxx">http://shops.com.tw/item/xxxxx</a></p>
+
+<p>最好可以一起合併結帳，過兩天就去匯款，請核對謝謝！</p>
+</blockquote>
+
+<p>其中 <code>shops.com.tw</code> 並不是屬於某公司的網址，正確的網址應該是 <code>shop.com.tw</code> 才對</p>
+
+<p>而使用者點擊假網址之後，就會被重新導向到攻擊者仿造的某公司登入頁面。就算使用者主動檢查登入頁面的網址，也只會看到像是 <code>http://account.shops.com.tw/login</code> 這樣，與真正的登入網址極為相似的假網址</p>
+
+<p>如果沒有非常仔細地檢查的話，很容易就會上當</p>
+
+<h3 id="code-injection">Code Injection</h3>
+
+<p>出現數量最多的攻擊方式，多半是在 <code>&lt;form&gt;</code> 中輸入攻擊字串，然後在使用者接收到 <code>&lt;form&gt;</code> 送出的內容後觸發攻擊。舉例來說：</p>
+
+<ul>
+<li>將商品分類的名稱命名為 <code>&lt;script src=//hack.u&gt;</code>，當使用者開啟包含商品分類的網頁時就會觸發，被重新導向到攻擊者的網頁</li>
+<li>在發送訊息時插入 <code>&lt;iframe src=//devil.c&amp;#99;&gt;</code> 字串。當使用者要回覆訊息時，因為網頁上會顯示引言的關係，所以在瀏覽器讀到攻擊字串後，使用者就會被重新導向到攻擊者的網頁</li>
+<li>結帳時，在購買人的 email 欄位輸入 <code>&lt;SCRIPT SRC=bad/url&gt;&lt;/SCRIPT&gt;</code> 字串，當使用者查看結帳明細時就會觸發攻擊，被重新導向到攻擊者的網頁</li>
+</ul>
+
+<h3 id="control-character-injection">Control Character Injection</h3>
+
+<p>如果過濾規則只能阻擋像是 <code>www.malicious.com/hack.html</code> 這種格式的 URL 字串的話，攻擊者可以在字串中塞入 null byte 來騙過過濾規則。例如：<code>%00www.%00malicious.%00com/%00hack.%00html</code></p>
+
+<p>而且這段 URL 仍然可以點擊，或做為重新導向的目標</p>
+
+<p>其他像是 ‍<code>&amp;#x0200d;</code> 等 zero width character 也有相同的效果</p>
+
+<h3 id="web-parameter-tampering">Web Parameter Tampering</h3>
+
+<p>像 <code>http://www.dummyurl.com/vulnerable.php?page=4%3Ciframe%20src=http://hack/you%3E</code> 這樣格式的 URL 就是一個典型的例子</p>
+
+<p>當使用者開啟 <code>http://www.dummyurl.com/vulnerable.php</code> 時，如果沒檢查 <code>$_GET['page']</code> 的內容，就直接把它顯示在頁面上的話，瀏覽器在讀到 <code>%3Ciframe%20src=http://hack/you%3E</code>這一列時，就會跳轉到攻擊者的網頁</p>
+
+<h2 id="summary">Summary</h2>
+
+<p>簡單來說：</p>
+
+<ol>
+<li>不要相信使用者輸入的<strong>任何</strong>內容</li>
+<li>所有輸入的值<strong>必須且只能</strong>是你預期的值</li>
+</ol>
+
+</main>
+
+    <footer>
+      
+<script>
+(function() {
+  function center_el(tagName) {
+    var tags = document.getElementsByTagName(tagName), i, tag;
+    for (i = 0; i < tags.length; i++) {
+      tag = tags[i];
+      var parent = tag.parentElement;
+      
+      if (parent.childNodes.length === 1) {
+        
+        if (parent.nodeName === 'A') {
+          parent = parent.parentElement;
+          if (parent.childNodes.length != 1) continue;
+        }
+        if (parent.nodeName === 'P') parent.style.textAlign = 'center';
+      }
+    }
+  }
+  var tagNames = ['img', 'embed', 'object'];
+  for (var i = 0; i < tagNames.length; i++) {
+    center_el(tagNames[i]);
+  }
+})();
+</script>
+
+      
+      <hr/>
+      Created with <a href="https://gohugo.io/">Hugo</a> and <a href="https://themes.gohugo.io/hugo-classic/">Hugo-Classic</a>
+      
+    </footer>
+  </body>
+</html>
+
