@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Home on bschen</title>
+    <link>http://bschen.tw/</link>
+    <description>Recent content in Home on bschen</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cmn-Hant</language>
+    <lastBuildDate>Sat, 28 Oct 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://bschen.tw/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Loading Classes without Namespace via Composer</title>
+      <link>http://bschen.tw/posts/loading-classes-without-namespace-via-composer/</link>
+      <pubDate>Sat, 28 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://bschen.tw/posts/loading-classes-without-namespace-via-composer/</guid>
+      <description>沒有設定 namespace 或沒有依照 PSR-4 規範的 PHP class 檔案，依然可以透過 Composer 載入。以綠界的 SDK ECPay/ECPayAIO_PHP 為例，在 composer.json 中加入下列設定：
+{ &amp;quot;autoload&amp;quot;: { &amp;quot;classmap&amp;quot;: [ &amp;quot;vendor/ECPay/ECPayAIO_PHP/AioSDK/sdk&amp;quot; ] }, &amp;quot;repositories&amp;quot;: [ { &amp;quot;type&amp;quot;: &amp;quot;package&amp;quot;, &amp;quot;package&amp;quot;: { &amp;quot;name&amp;quot;: &amp;quot;ecpay/ecpayaio_php&amp;quot;, &amp;quot;version&amp;quot;: &amp;quot;dev-master&amp;quot;, &amp;quot;source&amp;quot;: { &amp;quot;url&amp;quot;: &amp;quot;git@github.com:ECPay/ECPayAIO_PHP.git&amp;quot;, &amp;quot;type&amp;quot;: &amp;quot;git&amp;quot;, &amp;quot;reference&amp;quot;: &amp;quot;dev-master&amp;quot; }, &amp;quot;dist&amp;quot;: { &amp;quot;url&amp;quot;: &amp;quot;https://github.com/ECPay/ECPayAIO_PHP/archive/master.zip&amp;quot;, &amp;quot;type&amp;quot;: &amp;quot;zip&amp;quot; } } } ] }  ⚠️ autoload.classmap 那裡，因為 vendor/ECPay/ECPayAIO_PHP/ApplePaySDK 和 vendor/ECPay/ECPayAIO_PHP/AioSDK 使用了相同的 method 名稱，又沒有設定 namespace。所以如果想把路徑設為 vendor/ECPay/ECPayAIO_PHP 一次載入所有的 class 的話，會因為 method 名稱重複產生衝突。把 ApplePaySDK 和 AioSDK 路徑分開列入 autoload.</description>
+    </item>
+    
+    <item>
+      <title>An AES Encryption Implementation in PHP</title>
+      <link>http://bschen.tw/posts/an-aes-encryption-implementation-in-php/</link>
+      <pubDate>Wed, 01 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://bschen.tw/posts/an-aes-encryption-implementation-in-php/</guid>
+      <description>雖然網路上找到的大部份程式碼都是用 Mcrypt 模組實作的範例，不過用 OpenSSL 模組來實作的話會更簡潔明瞭：
+ 用 Mcrypt 實作的範例：
+ 實作時還發生了一個小烏龍：由於跟別人事先約定好要用 AES 128 加密，可是共用的密鑰長度卻是 32 個字元（256 bits），讓我在用 AES-128-CBC 測試時一直沒辦法解密出正確的原文，之後心血來潮改用 AES-256-CBC 測試後就成功解密了。找資料時看到別人遇到的類似狀況，我才確定問題出在密鑰的長度上。
+ Encrypt and decrypt strings in PHP | Urban Insight Using openssl_en/decrypt() in PHP instead of&amp;hellip; initialisation vector - Encrypting using AES-256, can I use 256 bits IV? - Information Security Stack Exchange 寫程式是良心事業: Python M2Crypto - AES 的 Encrypt 與 Decrypt  </description>
+    </item>
+    
+    <item>
+      <title>ISO Week Date: A Case Study of Twitter Down</title>
+      <link>http://bschen.tw/posts/iso-week-date-a-case-study-of-twitter-down/</link>
+      <pubDate>Mon, 29 Dec 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://bschen.tw/posts/iso-week-date-a-case-study-of-twitter-down/</guid>
+      <description>由於本週四就是 2015 年的元旦了，所以用 ISO week date 記錄時間的系統，會從週一開始進入 2015 年，即使週一的日期是 2014-12-29 才對
+摘自 Wikipedia 的說明：
+ The first week of the year, hence, always contains 4 January. ISO week year numbering therefore slightly deviates from the Gregorian for some days close to 1 January.
+ 關於 PHP date(&#39;o&#39;) 的說明：
+ ISO-8601 year number. This has the same value as Y, except that if the ISO week number (W) belongs to the previous or next year, that year is used instead.</description>
+    </item>
+    
+  </channel>
+</rss>
