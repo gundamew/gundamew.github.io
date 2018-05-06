@@ -6,10 +6,22 @@
     <description>Recent content in Home on bschen</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cmn-Hant</language>
-    <lastBuildDate>Wed, 17 Jan 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 06 May 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://bschen.tw/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Setting the Default Character Set and Collation to UTF-8 Properly in MySQL</title>
+      <link>http://bschen.tw/posts/mysql-utf8mb4/</link>
+      <pubDate>Sun, 06 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://bschen.tw/posts/mysql-utf8mb4/</guid>
+      <description>由於 MySQL 8.0 預設的 collation 是 utf8mb4_0900_ai_ci 而不是我原先以為「最精準」的 utf8mb4_unicode_ci，讓我好奇而查了一下，發現12：
+ 0900 代表 Unicode Collation Algorithm (UCA) 的 9.0.0 版本，包含在 2016 年發佈的 Unicode 9.0.0 之中3。目前最新的版本是 11.0.04 ai 代表 accent insensitivity，即同一字母的不同標音不影響排序 ci 就是 case insensitivity 了，同一字母的大小寫不影響排序  所以，不管是從其他方面，或是我所認為的「精準」來說，utf8mb4_0900_ai_ci (UCA 9.0.0) 都比 utf8mb4_unicode_ci (UCA 4.0.0) 要來得好。甚至是在 MySQL 5.7.7 裡，也都有 utf8mb4_unicode_520_ci (UCA 5.2.0) 這個更好的選擇5
+結論就是，在 MySQL 中，設定 UTF-8 編碼的最佳組合是：
+ 5.5.3+: charset=utf8mb4, collation=utf8mb4_unicode_ci 5.7.7+: charset=utf8mb4, collation=utf8mb4_unicode_520_ci 8.0.0+: charset=utf8mb4, collation=utf8mb4_0900_ai_ci  順便一提，utf8mb4 這個 charset 是在 MySQL 5.</description>
+    </item>
     
     <item>
       <title>Add Xdebug to Alpine Linux Docker Container</title>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hant">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Setting the Default Character Set and Collation to UTF-8 Properly in MySQL | bschen</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="http://bschen.tw/css/theme-override.css">
+    <header>
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <nav>
+    <ul>
+      
+      
+      <li class="pull-left ">
+        <a href="http://bschen.tw/">/home/bschen</a>
+      </li>
+      
+
+      
+
+    </ul>
+  </nav>
+</header>
+
+  </head>
+
+  <body>
+    <br/>
+
+<div class="article-meta">
+<h1><span class="title">Setting the Default Character Set and Collation to UTF-8 Properly in MySQL</span></h1>
+
+<h2 class="date">2018/05/06</h2>
+<p class="terms">
+  
+  
+  
+  
+  
+</p>
+</div>
+
+
+
+<main>
+<p>由於 MySQL 8.0 預設的 collation 是 <code>utf8mb4_0900_ai_ci</code> 而不是我原先以為「最精準」的 <code>utf8mb4_unicode_ci</code>，讓我好奇而查了一下，發現<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup><sup class="footnote-ref" id="fnref:2"><a href="#fn:2">2</a></sup>：</p>
+
+<ul>
+<li><code>0900</code> 代表 Unicode Collation Algorithm (UCA) 的 9.0.0 版本，包含在 2016 年發佈的 Unicode 9.0.0 之中<sup class="footnote-ref" id="fnref:3"><a href="#fn:3">3</a></sup>。目前最新的版本是 11.0.0<sup class="footnote-ref" id="fnref:4"><a href="#fn:4">4</a></sup></li>
+<li><code>ai</code> 代表 accent insensitivity，即同一字母的不同標音不影響排序</li>
+<li><code>ci</code> 就是 case insensitivity 了，同一字母的大小寫不影響排序</li>
+</ul>
+
+<p>所以，不管是從其他方面，或是我所認為的「精準」來說，<code>utf8mb4_0900_ai_ci</code> (UCA 9.0.0) 都比 <code>utf8mb4_unicode_ci</code> (UCA 4.0.0) 要來得好。甚至是在 MySQL 5.7.7 裡，也都有 <code>utf8mb4_unicode_520_ci</code> (UCA 5.2.0) 這個更好的選擇<sup class="footnote-ref" id="fnref:5"><a href="#fn:5">5</a></sup></p>
+
+<p>結論就是，在 MySQL 中，設定 UTF-8 編碼的最佳組合是：</p>
+
+<ul>
+<li>5.5.3+: <code>charset=utf8mb4, collation=utf8mb4_unicode_ci</code></li>
+<li>5.7.7+: <code>charset=utf8mb4, collation=utf8mb4_unicode_520_ci</code></li>
+<li>8.0.0+: <code>charset=utf8mb4, collation=utf8mb4_0900_ai_ci</code></li>
+</ul>
+
+<p>順便一提，<code>utf8mb4</code> 這個 charset 是在 MySQL 5.5.3 加入的<sup class="footnote-ref" id="fnref:6"><a href="#fn:6">6</a></sup>。在此之前，只有 <code>utf8</code>（5.5.3 之後等義於 <code>utf8mb3</code>）可用</p>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:1"><a href="https://dev.mysql.com/doc/refman/8.0/en/charset-collation-names.html">MySQL :: MySQL 8.0 Reference Manual :: 10.3.1 Collation Naming Conventions</a>
+ <a class="footnote-return" href="#fnref:1">↩</a></li>
+<li id="fn:2"><a href="https://www.monolune.com/what-is-the-utf8mb4_0900_ai_ci-collation/">What is the utf8mb4_0900_ai_ci Collation? - Monolune</a>
+ <a class="footnote-return" href="#fnref:2">↩</a></li>
+<li id="fn:3"><a href="http://unicode.org/versions/Unicode9.0.0/">Unicode 9.0.0</a>
+ <a class="footnote-return" href="#fnref:3">↩</a></li>
+<li id="fn:4"><a href="http://blog.unicode.org/2018/04/last-call-on-unicode-110-review.html">The Unicode Blog: Last Call on Unicode 11.0 Review</a>
+ <a class="footnote-return" href="#fnref:4">↩</a></li>
+<li id="fn:5"><a href="https://stackoverflow.com/a/43692337">mysql - Why is table CHARSET set to utf8mb4 and COLLATION to utf8mb4_unicode_520_ci - Stack Overflow</a>
+ <a class="footnote-return" href="#fnref:5">↩</a></li>
+<li id="fn:6"><a href="https://dev.mysql.com/doc/relnotes/mysql/5.5/en/news-5-5-3.html">MySQL :: MySQL 5.5 Release Notes :: Changes in MySQL 5.5.3 (2010-03-24, Milestone 3)</a>
+ <a class="footnote-return" href="#fnref:6">↩</a></li>
+</ol>
+</div>
+
+</main>
+
+    <footer>
+      
+<script>
+(function() {
+  function center_el(tagName) {
+    var tags = document.getElementsByTagName(tagName), i, tag;
+    for (i = 0; i < tags.length; i++) {
+      tag = tags[i];
+      var parent = tag.parentElement;
+      
+      if (parent.childNodes.length === 1) {
+        
+        if (parent.nodeName === 'A') {
+          parent = parent.parentElement;
+          if (parent.childNodes.length != 1) continue;
+        }
+        if (parent.nodeName === 'P') parent.style.textAlign = 'center';
+      }
+    }
+  }
+  var tagNames = ['img', 'embed', 'object'];
+  for (var i = 0; i < tagNames.length; i++) {
+    center_el(tagNames[i]);
+  }
+})();
+</script>
+
+      
+      <hr/>
+      Created with <a href="https://gohugo.io/">Hugo</a> and <a href="https://themes.gohugo.io/hugo-classic/">Hugo-Classic</a>
+      
+    </footer>
+  </body>
+</html>
+
