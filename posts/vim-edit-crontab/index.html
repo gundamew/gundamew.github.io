@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hant">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Edit crontab with Vim on macOS | bschen</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="http://bschen.tw/css/theme-override.css">
+    <header>
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <nav>
+    <ul>
+      
+      
+      <li class="pull-left ">
+        <a href="http://bschen.tw/">/home/bschen</a>
+      </li>
+      
+
+      
+
+    </ul>
+  </nav>
+</header>
+
+  </head>
+
+  <body>
+    <br/>
+
+<div class="article-meta">
+<h1><span class="title">Edit crontab with Vim on macOS</span></h1>
+
+<h2 class="date">2016/06/16</h2>
+<p class="terms">
+  
+  
+  
+  
+  
+</p>
+</div>
+
+
+
+<main>
+<p>在 macOS 上用 Vim 編輯 cron 時，除了會儲存失敗，還會收到下面的錯誤訊息：</p>
+
+<blockquote>
+<p>crontab: temp file must be edited in place</p>
+</blockquote>
+
+<p>一開始我以為是 Apple 不使用 crontab 而只用自家的 launchd。但看了文件之後發現 macOS 上的 crontab 並沒有被廢棄，我才把矛頭指向 Vim</p>
+
+<p>找解法找了很久，最後才靠著某篇回答，在 <code>.vimrc</code> 裡加上一列設定處理掉這個狀況：</p>
+
+<pre><code class="language-vimrc">set nowritebackup
+</code></pre>
+
+<p>2017-10-24 edit: 事隔一年多後，又在網路上看到有人也踩到一樣的問題<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup></p>
+
+<p>不同的是，對方找到的解法跟我找到的解法不太一樣。對方所找到的文章裡<sup class="footnote-ref" id="fnref:2"><a href="#fn:2">2</a></sup>所給的解法是：</p>
+
+<pre><code class="language-vimrc">autocmd filetype crontab setlocal nobackup nowritebackup
+</code></pre>
+
+<p>這個方式感覺比較靈活，也不錯</p>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:1"><a href="https://www.facebook.com/othree/posts/10156040898604208">https://www.facebook.com/othree/posts/10156040898604208</a>
+ <a class="footnote-return" href="#fnref:1">↩</a></li>
+<li id="fn:2"><a href="http://vim.wikia.com/wiki/Editing_crontab">http://vim.wikia.com/wiki/Editing_crontab</a>
+ <a class="footnote-return" href="#fnref:2">↩</a></li>
+</ol>
+</div>
+
+</main>
+
+    <footer>
+      
+<script>
+(function() {
+  function center_el(tagName) {
+    var tags = document.getElementsByTagName(tagName), i, tag;
+    for (i = 0; i < tags.length; i++) {
+      tag = tags[i];
+      var parent = tag.parentElement;
+      
+      if (parent.childNodes.length === 1) {
+        
+        if (parent.nodeName === 'A') {
+          parent = parent.parentElement;
+          if (parent.childNodes.length != 1) continue;
+        }
+        if (parent.nodeName === 'P') parent.style.textAlign = 'center';
+      }
+    }
+  }
+  var tagNames = ['img', 'embed', 'object'];
+  for (var i = 0; i < tagNames.length; i++) {
+    center_el(tagNames[i]);
+  }
+})();
+</script>
+
+      
+      <hr/>
+      Created with <a href="https://gohugo.io/">Hugo</a> and <a href="https://themes.gohugo.io/hugo-classic/">Hugo-Classic</a>
+      
+    </footer>
+  </body>
+</html>
+
