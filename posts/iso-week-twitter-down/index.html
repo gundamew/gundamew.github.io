@@ -1,55 +1,28 @@
 <!DOCTYPE html>
-<html lang="zh-cmn-Hant">
-  <head>
+<html lang="zh-cmn-Hant"><head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ISO Week Date: A Case Study of Twitter Down | bschen</title>
-    <link rel="stylesheet" href="/css/style.css" />
-    <link rel="stylesheet" href="/css/fonts.css" />
-    <link rel="stylesheet" href="http://bschen.tw/css/theme-override.css">
-    <header>
-
-  
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
-  <nav>
-    <ul>
-      
-      
-      <li class="pull-left ">
-        <a href="http://bschen.tw/">/home/bschen</a>
-      </li>
-      
-
-      
-
-    </ul>
-  </nav>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>bschen</title>
+    <base href="https://bschen.tw/">
+    <link rel="stylesheet" href="/css/tachyons.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+</head>
+<body><header class="mw7 mw7-ns mv4 ph5 ph5-ns center">
+    <nav class="pv2 pv2-ns ph3 ph3-ns bg-dark-blue">
+        
+        <a class="link dim near-white f6 f5-ns dib mr3" href="/">/Home</a>
+        
+        <a class="link dim near-white f6 f5-ns dib mr3" href="/posts">/Posts</a>
+        
+    </nav>
 </header>
-
-  </head>
-
-  <body>
-    <br/>
-
-<div class="article-meta">
-<h1><span class="title">ISO Week Date: A Case Study of Twitter Down</span></h1>
-
-<h2 class="date">2014/12/29</h2>
-<p class="terms">
-  
-  
-  
-  
-  
-</p>
-</div>
-
-
-
+<div class="mw7 mw7-ns mv4 ph5 ph5-ns center">
 <main>
-
+    <h1 class="lh-title tc pa1 mb0">ISO Week Date: A Case Study of Twitter Down</h1>
+    <h2 class="f4 tc mb4"><time>2014-12-29</time></h2>
+    <section class="lh-copy">
+        
 
 <p>由於<strong>本週四</strong>就是 2015 年的元旦了，所以用 <a href="https://en.wikipedia.org/wiki/ISO_week_date">ISO week date</a> 記錄時間的系統，會從<strong>週一</strong>開始進入 2015 年，即使週一的日期是 2014-12-29 才對</p>
 
@@ -66,15 +39,12 @@
 </blockquote>
 
 <p>自己測試的結果：</p>
-
-<pre><code class="language-php">// 2015
-echo date('o');
+<div class="highlight"><pre class="chroma"><code class="language-php" data-lang="php">// 2015
+echo date(&#39;o&#39;);
 
 // 2014
-echo date('Y');
-</code></pre>
-
-<p>然後，從今早的傳言看來，Twitter 的 OAuth server 出的包可能就是因為這個……（原文已刪，連結是 <a href="https://www.facebook.com/thehackernews/posts/1051721444841728）">https://www.facebook.com/thehackernews/posts/1051721444841728）</a></p>
+echo date(&#39;Y&#39;);</code></pre></div>
+<p>然後，從今早的傳言看來，Twitter 的 OAuth server 出的包可能就是因為這個……（原文已刪，連結是 <a href="https://www.facebook.com/thehackernews/posts/1051721444841728">https://www.facebook.com/thehackernews/posts/1051721444841728</a>）</p>
 
 <h2 id="2014-12-31-edit">2014-12-31 edit</h2>
 
@@ -96,53 +66,24 @@ Mon Dec 29 00:44:45 EST 2014</p>
 </blockquote>
 
 <p>自己在 Bash 裡下指令的結果：</p>
-
-<pre><code class="language-bash">$ date +%Y
-2014
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ date +%Y
+<span class="m">2014</span>
 
 $ date +%G
-2015
+<span class="m">2015</span>
 
 $ date --help
 %Y   year
-%G   year of ISO week number (see %V); normally useful only with %V
-%V   ISO week number, with Monday as first day of week (01..53)
-</code></pre>
-
+%G   year of ISO week number <span class="o">(</span>see %V<span class="o">)</span><span class="p">;</span> normally useful only with %V
+%V   ISO week number, with Monday as first day of week <span class="o">(</span><span class="m">01</span>..53<span class="o">)</span></code></pre></div>
+    </section>
 </main>
 
-    <footer>
-      
-<script>
-(function() {
-  function center_el(tagName) {
-    var tags = document.getElementsByTagName(tagName), i, tag;
-    for (i = 0; i < tags.length; i++) {
-      tag = tags[i];
-      var parent = tag.parentElement;
-      
-      if (parent.childNodes.length === 1) {
-        
-        if (parent.nodeName === 'A') {
-          parent = parent.parentElement;
-          if (parent.childNodes.length != 1) continue;
-        }
-        if (parent.nodeName === 'P') parent.style.textAlign = 'center';
-      }
-    }
-  }
-  var tagNames = ['img', 'embed', 'object'];
-  for (var i = 0; i < tagNames.length; i++) {
-    center_el(tagNames[i]);
-  }
-})();
-</script>
-
-      
-      <hr/>
-      Created with <a href="https://gohugo.io/">Hugo</a> and <a href="https://themes.gohugo.io/hugo-classic/">Hugo-Classic</a>
-      
-    </footer>
-  </body>
+        </div><hr class="w-50">
+<footer class="mw7 mw7-ns mb4 ph5 ph5-ns center">
+    <div class="mt4">
+        <span class="f6 db tc">Powered by <a href="https://gohugo.io/" target="_blank" class="link dim dark-blue fw6">Hugo</a></span>
+    </div>
+</footer>
+</body>
 </html>
-

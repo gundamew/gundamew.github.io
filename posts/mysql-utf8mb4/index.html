@@ -1,55 +1,28 @@
 <!DOCTYPE html>
-<html lang="zh-cmn-Hant">
-  <head>
+<html lang="zh-cmn-Hant"><head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Setting the Default Character Set and Collation to UTF-8 Properly in MySQL | bschen</title>
-    <link rel="stylesheet" href="/css/style.css" />
-    <link rel="stylesheet" href="/css/fonts.css" />
-    <link rel="stylesheet" href="http://bschen.tw/css/theme-override.css">
-    <header>
-
-  
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
-  <nav>
-    <ul>
-      
-      
-      <li class="pull-left ">
-        <a href="http://bschen.tw/">/home/bschen</a>
-      </li>
-      
-
-      
-
-    </ul>
-  </nav>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>bschen</title>
+    <base href="https://bschen.tw/">
+    <link rel="stylesheet" href="/css/tachyons.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+</head>
+<body><header class="mw7 mw7-ns mv4 ph5 ph5-ns center">
+    <nav class="pv2 pv2-ns ph3 ph3-ns bg-dark-blue">
+        
+        <a class="link dim near-white f6 f5-ns dib mr3" href="/">/Home</a>
+        
+        <a class="link dim near-white f6 f5-ns dib mr3" href="/posts">/Posts</a>
+        
+    </nav>
 </header>
-
-  </head>
-
-  <body>
-    <br/>
-
-<div class="article-meta">
-<h1><span class="title">Setting the Default Character Set and Collation to UTF-8 Properly in MySQL</span></h1>
-
-<h2 class="date">2018/05/06</h2>
-<p class="terms">
-  
-  
-  
-  
-  
-</p>
-</div>
-
-
-
+<div class="mw7 mw7-ns mv4 ph5 ph5-ns center">
 <main>
-<p>由於 MySQL 8.0 預設的 collation 是 <code>utf8mb4_0900_ai_ci</code> 而不是我原先以為「最精準」的 <code>utf8mb4_unicode_ci</code>，讓我好奇而查了一下，發現<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup><sup class="footnote-ref" id="fnref:2"><a href="#fn:2">2</a></sup>：</p>
+    <h1 class="lh-title tc pa1 mb0">Setting the Default Character Set and Collation to UTF-8 Properly in MySQL</h1>
+    <h2 class="f4 tc mb4"><time>2018-05-06</time></h2>
+    <section class="lh-copy">
+        <p>由於 MySQL 8.0 預設的 collation 是 <code>utf8mb4_0900_ai_ci</code> 而不是我原先以為「最精準」的 <code>utf8mb4_unicode_ci</code>，讓我好奇而查了一下，發現<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup><sup class="footnote-ref" id="fnref:2"><a href="#fn:2">2</a></sup>：</p>
 
 <ul>
 <li><code>0900</code> 代表 Unicode Collation Algorithm (UCA) 的 9.0.0 版本，包含在 2016 年發佈的 Unicode 9.0.0 之中<sup class="footnote-ref" id="fnref:3"><a href="#fn:3">3</a></sup>。目前最新的版本是 11.0.0<sup class="footnote-ref" id="fnref:4"><a href="#fn:4">4</a></sup></li>
@@ -88,40 +61,14 @@
 </ol>
 </div>
 
+    </section>
 </main>
 
-    <footer>
-      
-<script>
-(function() {
-  function center_el(tagName) {
-    var tags = document.getElementsByTagName(tagName), i, tag;
-    for (i = 0; i < tags.length; i++) {
-      tag = tags[i];
-      var parent = tag.parentElement;
-      
-      if (parent.childNodes.length === 1) {
-        
-        if (parent.nodeName === 'A') {
-          parent = parent.parentElement;
-          if (parent.childNodes.length != 1) continue;
-        }
-        if (parent.nodeName === 'P') parent.style.textAlign = 'center';
-      }
-    }
-  }
-  var tagNames = ['img', 'embed', 'object'];
-  for (var i = 0; i < tagNames.length; i++) {
-    center_el(tagNames[i]);
-  }
-})();
-</script>
-
-      
-      <hr/>
-      Created with <a href="https://gohugo.io/">Hugo</a> and <a href="https://themes.gohugo.io/hugo-classic/">Hugo-Classic</a>
-      
-    </footer>
-  </body>
+        </div><hr class="w-50">
+<footer class="mw7 mw7-ns mb4 ph5 ph5-ns center">
+    <div class="mt4">
+        <span class="f6 db tc">Powered by <a href="https://gohugo.io/" target="_blank" class="link dim dark-blue fw6">Hugo</a></span>
+    </div>
+</footer>
+</body>
 </html>
-

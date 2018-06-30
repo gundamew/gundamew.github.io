@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Home on bschen</title>
-    <link>http://bschen.tw/</link>
+    <link>https://bschen.tw/</link>
     <description>Recent content in Home on bschen</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cmn-Hant</language>
     <lastBuildDate>Sun, 06 May 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://bschen.tw/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://bschen.tw/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Setting the Default Character Set and Collation to UTF-8 Properly in MySQL</title>
-      <link>http://bschen.tw/posts/mysql-utf8mb4/</link>
+      <link>https://bschen.tw/posts/mysql-utf8mb4/</link>
       <pubDate>Sun, 06 May 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://bschen.tw/posts/mysql-utf8mb4/</guid>
+      <guid>https://bschen.tw/posts/mysql-utf8mb4/</guid>
       <description>由於 MySQL 8.0 預設的 collation 是 utf8mb4_0900_ai_ci 而不是我原先以為「最精準」的 utf8mb4_unicode_ci，讓我好奇而查了一下，發現12：
  0900 代表 Unicode Collation Algorithm (UCA) 的 9.0.0 版本，包含在 2016 年發佈的 Unicode 9.0.0 之中3。目前最新的版本是 11.0.04 ai 代表 accent insensitivity，即同一字母的不同標音不影響排序 ci 就是 case insensitivity 了，同一字母的大小寫不影響排序  所以，不管是從其他方面，或是我所認為的「精準」來說，utf8mb4_0900_ai_ci (UCA 9.0.0) 都比 utf8mb4_unicode_ci (UCA 4.0.0) 要來得好。甚至是在 MySQL 5.7.7 裡，也都有 utf8mb4_unicode_520_ci (UCA 5.2.0) 這個更好的選擇5
 結論就是，在 MySQL 中，設定 UTF-8 編碼的最佳組合是：
@@ -25,38 +25,38 @@
     
     <item>
       <title>Add Xdebug to Alpine Linux Docker Container</title>
-      <link>http://bschen.tw/posts/alpine-docker-xdebug/</link>
+      <link>https://bschen.tw/posts/alpine-docker-xdebug/</link>
       <pubDate>Wed, 17 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://bschen.tw/posts/alpine-docker-xdebug/</guid>
+      <guid>https://bschen.tw/posts/alpine-docker-xdebug/</guid>
       <description>原本想在以 Docker 建立的 PHP container 裡加上 Xdebug，但是單純在 Dockerfile 裡下 pecl install xdebug 指令的話，會發生找不到 autoconf 套件的錯誤
 所使用的 Docker image 是官方的 php:7.2.1-fpm-alpine3.7
 透過網路搜尋到的資料，大概知道了要先把必須的套件裝上，才能把 Xdebug 加進 container 裡。而這些必須的套件其實在官方的 image 裡都有裝，只是官方的 image 在用完這些套件之後，就把這些套件刪除以節省空間了1
 這也是 Alpine Linux 節省空間的小秘訣2：
-$ apk add --virtual mypacks gcc vim $ apk del mypacks  1. 先把 $PHPIZE_DEPS 定義的套件裝上3 $ apk add --no-cache --virtual .build-deps $PHPIZE_DEPS  2. 安裝 Xdebug 因為 Xdebug 目前最新的 stable 版本 2.5.5 還不支援 PHP 7.2，所以要指定安裝為 beta 版4：</description>
+$ apk add --virtual mypacks gcc vim $ apk del mypacks 1. 先把 $PHPIZE_DEPS 定義的套件裝上3 $ apk add --no-cache --virtual .build-deps $PHPIZE_DEPS 2. 安裝 Xdebug 因為 Xdebug 目前最新的 stable 版本 2.5.5 還不支援 PHP 7.2，所以要指定安裝為 beta 版4：</description>
     </item>
     
     <item>
       <title>Loading Classes without Namespace via Composer</title>
-      <link>http://bschen.tw/posts/load-class-via-composer/</link>
+      <link>https://bschen.tw/posts/load-class-via-composer/</link>
       <pubDate>Sat, 28 Oct 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://bschen.tw/posts/load-class-via-composer/</guid>
+      <guid>https://bschen.tw/posts/load-class-via-composer/</guid>
       <description>沒有設定 namespace 或沒有依照 PSR-4 規範的 PHP class 檔案，依然可以透過 Composer 載入。以綠界的 SDK ECPay/ECPayAIO_PHP 為例，在 composer.json 中加入下列設定：
-{ &amp;quot;autoload&amp;quot;: { &amp;quot;classmap&amp;quot;: [ &amp;quot;vendor/ECPay/ECPayAIO_PHP/AioSDK/sdk&amp;quot; ] }, &amp;quot;repositories&amp;quot;: [ { &amp;quot;type&amp;quot;: &amp;quot;package&amp;quot;, &amp;quot;package&amp;quot;: { &amp;quot;name&amp;quot;: &amp;quot;ecpay/ecpayaio_php&amp;quot;, &amp;quot;version&amp;quot;: &amp;quot;dev-master&amp;quot;, &amp;quot;source&amp;quot;: { &amp;quot;url&amp;quot;: &amp;quot;git@github.com:ECPay/ECPayAIO_PHP.git&amp;quot;, &amp;quot;type&amp;quot;: &amp;quot;git&amp;quot;, &amp;quot;reference&amp;quot;: &amp;quot;dev-master&amp;quot; }, &amp;quot;dist&amp;quot;: { &amp;quot;url&amp;quot;: &amp;quot;https://github.com/ECPay/ECPayAIO_PHP/archive/master.zip&amp;quot;, &amp;quot;type&amp;quot;: &amp;quot;zip&amp;quot; } } } ] }  ⚠️ autoload.classmap 那裡，因為 vendor/ECPay/ECPayAIO_PHP/ApplePaySDK 和 vendor/ECPay/ECPayAIO_PHP/AioSDK 使用了相同的 method 名稱，又沒有設定 namespace。所以如果想把路徑設為 vendor/ECPay/ECPayAIO_PHP 一次載入所有的 class 的話，會因為 method 名稱重複產生衝突。把 ApplePaySDK 和 AioSDK 路徑分開列入 autoload.</description>
+{ &amp;#34;autoload&amp;#34;: { &amp;#34;classmap&amp;#34;: [ &amp;#34;vendor/ECPay/ECPayAIO_PHP/AioSDK/sdk&amp;#34; ] }, &amp;#34;repositories&amp;#34;: [ { &amp;#34;type&amp;#34;: &amp;#34;package&amp;#34;, &amp;#34;package&amp;#34;: { &amp;#34;name&amp;#34;: &amp;#34;ecpay/ecpayaio_php&amp;#34;, &amp;#34;version&amp;#34;: &amp;#34;dev-master&amp;#34;, &amp;#34;source&amp;#34;: { &amp;#34;url&amp;#34;: &amp;#34;git@github.com:ECPay/ECPayAIO_PHP.git&amp;#34;, &amp;#34;type&amp;#34;: &amp;#34;git&amp;#34;, &amp;#34;reference&amp;#34;: &amp;#34;dev-master&amp;#34; }, &amp;#34;dist&amp;#34;: { &amp;#34;url&amp;#34;: &amp;#34;https://github.com/ECPay/ECPayAIO_PHP/archive/master.zip&amp;#34;, &amp;#34;type&amp;#34;: &amp;#34;zip&amp;#34; } } } ] } ⚠️ autoload.classmap 那裡，因為 vendor/ECPay/ECPayAIO_PHP/ApplePaySDK 和 vendor/ECPay/ECPayAIO_PHP/AioSDK 使用了相同的 method 名稱，又沒有設定 namespace。所以如果想把路徑設為 vendor/ECPay/ECPayAIO_PHP 一次載入所有的 class 的話，會因為 method 名稱重複產生衝突。把 ApplePaySDK 和 AioSDK 路徑分開列入 autoload.</description>
     </item>
     
     <item>
       <title>Edit crontab with Vim on macOS</title>
-      <link>http://bschen.tw/posts/vim-edit-crontab/</link>
+      <link>https://bschen.tw/posts/vim-edit-crontab/</link>
       <pubDate>Thu, 16 Jun 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://bschen.tw/posts/vim-edit-crontab/</guid>
+      <guid>https://bschen.tw/posts/vim-edit-crontab/</guid>
       <description>在 macOS 上用 Vim 編輯 cron 時，除了會儲存失敗，還會收到下面的錯誤訊息：
  crontab: temp file must be edited in place
  一開始我以為是 Apple 不使用 crontab 而只用自家的 launchd。但看了文件之後發現 macOS 上的 crontab 並沒有被廢棄，我才把矛頭指向 Vim
 找解法找了很久，最後才靠著某篇回答，在 .vimrc 裡加上一列設定處理掉這個狀況：
-set nowritebackup  它的起因是 Vim 對「修改檔案」這件事的處理方式，更精確地說是 backupcopy 這個選項
+set nowritebackup 它的起因是 Vim 對「修改檔案」這件事的處理方式，更精確地說是 backupcopy 這個選項
 檢查 :set backupcopy 的內容可以發現，當其值為 yes 時，Vim 會先複製一份原始檔案之後，才修改原始檔案；而其值為 no 時，則會直接把原始檔案改名，再建立新檔案
 從 :set crontab 的內容來看，當 set backupcopy=no 時，可能會發生二種情況：原始檔案其實是一個 link 而 Vim 只能建立一個新檔案而非新的 link；或者因為權限的關係，Vim 無法建立新檔案。這二種情況都會導致寫入失敗
 非 Unix 系統上的 Vim 的這個選項預設值是 auto，所以要再另外設定為 yes 才能避開這個狀況。當然也可以直接把 backup 選項給關掉</description>
@@ -64,10 +64,10 @@ set nowritebackup  它的起因是 Vim 對「修改檔案」這件事的處理�
     
     <item>
       <title>An AES Encryption Implementation in PHP</title>
-      <link>http://bschen.tw/posts/php-aes-encryption/</link>
+      <link>https://bschen.tw/posts/php-aes-encryption/</link>
       <pubDate>Wed, 01 Jun 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://bschen.tw/posts/php-aes-encryption/</guid>
+      <guid>https://bschen.tw/posts/php-aes-encryption/</guid>
       <description>雖然網路上找到的大部份程式碼都是用 Mcrypt 模組實作的範例，不過用 OpenSSL 模組來實作的話會更簡潔明瞭：
  用 Mcrypt 實作的範例：
  實作時還發生了一個小烏龍：由於跟別人事先約定好要用 AES 128 加密，可是共用的密鑰長度卻是 32 個字元（256 bits），讓我在用 AES-128-CBC 測試時一直沒辦法解密出正確的原文，之後心血來潮改用 AES-256-CBC 測試後就成功解密了。找資料時看到別人遇到的類似狀況，我才確定問題出在密鑰的長度上
@@ -76,10 +76,10 @@ set nowritebackup  它的起因是 Vim 對「修改檔案」這件事的處理�
     
     <item>
       <title>ISO Week Date: A Case Study of Twitter Down</title>
-      <link>http://bschen.tw/posts/iso-week-twitter-down/</link>
+      <link>https://bschen.tw/posts/iso-week-twitter-down/</link>
       <pubDate>Mon, 29 Dec 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://bschen.tw/posts/iso-week-twitter-down/</guid>
+      <guid>https://bschen.tw/posts/iso-week-twitter-down/</guid>
       <description>由於本週四就是 2015 年的元旦了，所以用 ISO week date 記錄時間的系統，會從週一開始進入 2015 年，即使週一的日期是 2014-12-29 才對
 摘自 Wikipedia 的說明：
  The first week of the year, hence, always contains 4 January. ISO week year numbering therefore slightly deviates from the Gregorian for some days close to 1 January.
@@ -89,10 +89,10 @@ set nowritebackup  它的起因是 Vim 對「修改檔案」這件事的處理�
     
     <item>
       <title>XSS Case Study</title>
-      <link>http://bschen.tw/posts/xss-case-study/</link>
+      <link>https://bschen.tw/posts/xss-case-study/</link>
       <pubDate>Fri, 27 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://bschen.tw/posts/xss-case-study/</guid>
+      <guid>https://bschen.tw/posts/xss-case-study/</guid>
       <description>Prologue 在此對我於某公司經手過的攻擊案例做一份概略的整理報告。以下列出的攻擊方式不一定會單獨出現，多半都是混合使用
 Cases URL Encoded Attack 攻擊者向使用者發送一段訊息，訊息裡夾帶一段類似網址的字串：www&amp;amp;#46really-bad&amp;amp;#46com
 當使用者讀取到這段訊息，&amp;amp;#46 被瀏覽器解碼變成 . 之後，顯示出來的就會是 www.really-bad.com 這樣完整的網址

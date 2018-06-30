@@ -1,55 +1,28 @@
 <!DOCTYPE html>
-<html lang="zh-cmn-Hant">
-  <head>
+<html lang="zh-cmn-Hant"><head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>An AES Encryption Implementation in PHP | bschen</title>
-    <link rel="stylesheet" href="/css/style.css" />
-    <link rel="stylesheet" href="/css/fonts.css" />
-    <link rel="stylesheet" href="http://bschen.tw/css/theme-override.css">
-    <header>
-
-  
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
-  <nav>
-    <ul>
-      
-      
-      <li class="pull-left ">
-        <a href="http://bschen.tw/">/home/bschen</a>
-      </li>
-      
-
-      
-
-    </ul>
-  </nav>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>bschen</title>
+    <base href="https://bschen.tw/">
+    <link rel="stylesheet" href="/css/tachyons.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+</head>
+<body><header class="mw7 mw7-ns mv4 ph5 ph5-ns center">
+    <nav class="pv2 pv2-ns ph3 ph3-ns bg-dark-blue">
+        
+        <a class="link dim near-white f6 f5-ns dib mr3" href="/">/Home</a>
+        
+        <a class="link dim near-white f6 f5-ns dib mr3" href="/posts">/Posts</a>
+        
+    </nav>
 </header>
-
-  </head>
-
-  <body>
-    <br/>
-
-<div class="article-meta">
-<h1><span class="title">An AES Encryption Implementation in PHP</span></h1>
-
-<h2 class="date">2016/06/01</h2>
-<p class="terms">
-  
-  
-  
-  
-  
-</p>
-</div>
-
-
-
+<div class="mw7 mw7-ns mv4 ph5 ph5-ns center">
 <main>
-<p>雖然網路上找到的大部份程式碼都是用 <a href="http://php.net/manual/en/book.mcrypt.php">Mcrypt 模組</a>實作的範例，不過用 <a href="http://php.net/manual/en/book.openssl.php">OpenSSL 模組</a>來實作的話會更簡潔明瞭：</p>
+    <h1 class="lh-title tc pa1 mb0">An AES Encryption Implementation in PHP</h1>
+    <h2 class="f4 tc mb4"><time>2016-06-01</time></h2>
+    <section class="lh-copy">
+        <p>雖然網路上找到的大部份程式碼都是用 <a href="http://php.net/manual/en/book.mcrypt.php">Mcrypt 模組</a>實作的範例，不過用 <a href="http://php.net/manual/en/book.openssl.php">OpenSSL 模組</a>來實作的話會更簡潔明瞭：</p>
 
 <script src="https://gist.github.com/gundamew/3462de49997eeb1fe34753d6c27f7646.js"></script>
 
@@ -66,40 +39,14 @@
 <li><a href="http://ijecorp.blogspot.tw/2013/08/python-m2crypto-aes-encrypt-decrypt.html">寫程式是良心事業: Python M2Crypto - AES 的 Encrypt 與 Decrypt</a></li>
 </ul>
 
+    </section>
 </main>
 
-    <footer>
-      
-<script>
-(function() {
-  function center_el(tagName) {
-    var tags = document.getElementsByTagName(tagName), i, tag;
-    for (i = 0; i < tags.length; i++) {
-      tag = tags[i];
-      var parent = tag.parentElement;
-      
-      if (parent.childNodes.length === 1) {
-        
-        if (parent.nodeName === 'A') {
-          parent = parent.parentElement;
-          if (parent.childNodes.length != 1) continue;
-        }
-        if (parent.nodeName === 'P') parent.style.textAlign = 'center';
-      }
-    }
-  }
-  var tagNames = ['img', 'embed', 'object'];
-  for (var i = 0; i < tagNames.length; i++) {
-    center_el(tagNames[i]);
-  }
-})();
-</script>
-
-      
-      <hr/>
-      Created with <a href="https://gohugo.io/">Hugo</a> and <a href="https://themes.gohugo.io/hugo-classic/">Hugo-Classic</a>
-      
-    </footer>
-  </body>
+        </div><hr class="w-50">
+<footer class="mw7 mw7-ns mb4 ph5 ph5-ns center">
+    <div class="mt4">
+        <span class="f6 db tc">Powered by <a href="https://gohugo.io/" target="_blank" class="link dim dark-blue fw6">Hugo</a></span>
+    </div>
+</footer>
+</body>
 </html>
-

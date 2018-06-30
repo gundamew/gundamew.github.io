@@ -1,55 +1,28 @@
 <!DOCTYPE html>
-<html lang="zh-cmn-Hant">
-  <head>
+<html lang="zh-cmn-Hant"><head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Add Xdebug to Alpine Linux Docker Container | bschen</title>
-    <link rel="stylesheet" href="/css/style.css" />
-    <link rel="stylesheet" href="/css/fonts.css" />
-    <link rel="stylesheet" href="http://bschen.tw/css/theme-override.css">
-    <header>
-
-  
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
-  <nav>
-    <ul>
-      
-      
-      <li class="pull-left ">
-        <a href="http://bschen.tw/">/home/bschen</a>
-      </li>
-      
-
-      
-
-    </ul>
-  </nav>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>bschen</title>
+    <base href="https://bschen.tw/">
+    <link rel="stylesheet" href="/css/tachyons.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+</head>
+<body><header class="mw7 mw7-ns mv4 ph5 ph5-ns center">
+    <nav class="pv2 pv2-ns ph3 ph3-ns bg-dark-blue">
+        
+        <a class="link dim near-white f6 f5-ns dib mr3" href="/">/Home</a>
+        
+        <a class="link dim near-white f6 f5-ns dib mr3" href="/posts">/Posts</a>
+        
+    </nav>
 </header>
-
-  </head>
-
-  <body>
-    <br/>
-
-<div class="article-meta">
-<h1><span class="title">Add Xdebug to Alpine Linux Docker Container</span></h1>
-
-<h2 class="date">2018/01/17</h2>
-<p class="terms">
-  
-  
-  
-  
-  
-</p>
-</div>
-
-
-
+<div class="mw7 mw7-ns mv4 ph5 ph5-ns center">
 <main>
-
+    <h1 class="lh-title tc pa1 mb0">Add Xdebug to Alpine Linux Docker Container</h1>
+    <h2 class="f4 tc mb4"><time>2018-01-17</time></h2>
+    <section class="lh-copy">
+        
 
 <p>原本想在以 Docker 建立的 PHP container 裡加上 Xdebug，但是單純在 Dockerfile 裡下 <code>pecl install xdebug</code> 指令的話，會發生找不到 autoconf 套件的錯誤</p>
 
@@ -58,30 +31,18 @@
 <p>透過網路搜尋到的資料，大概知道了要先把必須的套件裝上，才能把 Xdebug 加進 container 裡。而這些必須的套件其實在官方的 image 裡都有裝，只是官方的 image 在用完這些套件之後，就把這些套件刪除以節省空間了<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup></p>
 
 <p>這也是 Alpine Linux 節省空間的小秘訣<sup class="footnote-ref" id="fnref:2"><a href="#fn:2">2</a></sup>：</p>
-
-<pre><code class="language-shell">$ apk add --virtual mypacks gcc vim
-$ apk del mypacks
-</code></pre>
-
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ apk add --virtual mypacks gcc vim
+$ apk del mypacks</code></pre></div>
 <h2 id="1-先把-phpize-deps-定義的套件裝上-3">1. 先把 <code>$PHPIZE_DEPS</code> 定義的套件裝上<sup class="footnote-ref" id="fnref:3"><a href="#fn:3">3</a></sup></h2>
-
-<pre><code class="language-shell">$ apk add --no-cache --virtual .build-deps $PHPIZE_DEPS
-</code></pre>
-
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ apk add --no-cache --virtual .build-deps <span class="nv">$PHPIZE_DEPS</span></code></pre></div>
 <h2 id="2-安裝-xdebug">2. 安裝 Xdebug</h2>
 
 <p>因為 Xdebug 目前最新的 stable 版本 2.5.5 還不支援 PHP 7.2，所以要指定安裝為 beta 版<sup class="footnote-ref" id="fnref:4"><a href="#fn:4">4</a></sup>：</p>
-
-<pre><code class="language-shell">$ pecl install xdebug-2.6.0beta1
-</code></pre>
-
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ pecl install xdebug-2.6.0beta1</code></pre></div>
 <p>2018-03-21 edit: 現在 Xdebug 2.6.0 的 stable 版本已經釋出，所以之後不用再指定版本了</p>
 
 <h2 id="3-再把-phpize-deps-移除以節省空間">3. 再把 <code>$PHPIZE_DEPS</code> 移除以節省空間</h2>
-
-<pre><code class="language-shell">$ apk del .build-deps
-</code></pre>
-
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ apk del .build-deps</code></pre></div>
 <p>最後結果：</p>
 
 <ul>
@@ -104,40 +65,14 @@ $ apk del mypacks
 </ol>
 </div>
 
+    </section>
 </main>
 
-    <footer>
-      
-<script>
-(function() {
-  function center_el(tagName) {
-    var tags = document.getElementsByTagName(tagName), i, tag;
-    for (i = 0; i < tags.length; i++) {
-      tag = tags[i];
-      var parent = tag.parentElement;
-      
-      if (parent.childNodes.length === 1) {
-        
-        if (parent.nodeName === 'A') {
-          parent = parent.parentElement;
-          if (parent.childNodes.length != 1) continue;
-        }
-        if (parent.nodeName === 'P') parent.style.textAlign = 'center';
-      }
-    }
-  }
-  var tagNames = ['img', 'embed', 'object'];
-  for (var i = 0; i < tagNames.length; i++) {
-    center_el(tagNames[i]);
-  }
-})();
-</script>
-
-      
-      <hr/>
-      Created with <a href="https://gohugo.io/">Hugo</a> and <a href="https://themes.gohugo.io/hugo-classic/">Hugo-Classic</a>
-      
-    </footer>
-  </body>
+        </div><hr class="w-50">
+<footer class="mw7 mw7-ns mb4 ph5 ph5-ns center">
+    <div class="mt4">
+        <span class="f6 db tc">Powered by <a href="https://gohugo.io/" target="_blank" class="link dim dark-blue fw6">Hugo</a></span>
+    </div>
+</footer>
+</body>
 </html>
-

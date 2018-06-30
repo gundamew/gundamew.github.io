@@ -1,55 +1,28 @@
 <!DOCTYPE html>
-<html lang="zh-cmn-Hant">
-  <head>
+<html lang="zh-cmn-Hant"><head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Edit crontab with Vim on macOS | bschen</title>
-    <link rel="stylesheet" href="/css/style.css" />
-    <link rel="stylesheet" href="/css/fonts.css" />
-    <link rel="stylesheet" href="http://bschen.tw/css/theme-override.css">
-    <header>
-
-  
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
-  <nav>
-    <ul>
-      
-      
-      <li class="pull-left ">
-        <a href="http://bschen.tw/">/home/bschen</a>
-      </li>
-      
-
-      
-
-    </ul>
-  </nav>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>bschen</title>
+    <base href="https://bschen.tw/">
+    <link rel="stylesheet" href="/css/tachyons.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+</head>
+<body><header class="mw7 mw7-ns mv4 ph5 ph5-ns center">
+    <nav class="pv2 pv2-ns ph3 ph3-ns bg-dark-blue">
+        
+        <a class="link dim near-white f6 f5-ns dib mr3" href="/">/Home</a>
+        
+        <a class="link dim near-white f6 f5-ns dib mr3" href="/posts">/Posts</a>
+        
+    </nav>
 </header>
-
-  </head>
-
-  <body>
-    <br/>
-
-<div class="article-meta">
-<h1><span class="title">Edit crontab with Vim on macOS</span></h1>
-
-<h2 class="date">2016/06/16</h2>
-<p class="terms">
-  
-  
-  
-  
-  
-</p>
-</div>
-
-
-
+<div class="mw7 mw7-ns mv4 ph5 ph5-ns center">
 <main>
-<p>在 macOS 上用 Vim 編輯 cron 時，除了會儲存失敗，還會收到下面的錯誤訊息：</p>
+    <h1 class="lh-title tc pa1 mb0">Edit crontab with Vim on macOS</h1>
+    <h2 class="f4 tc mb4"><time>2016-06-16</time></h2>
+    <section class="lh-copy">
+        <p>在 macOS 上用 Vim 編輯 cron 時，除了會儲存失敗，還會收到下面的錯誤訊息：</p>
 
 <blockquote>
 <p>crontab: temp file must be edited in place</p>
@@ -58,10 +31,7 @@
 <p>一開始我以為是 Apple 不使用 crontab 而只用自家的 launchd。但看了文件之後發現 macOS 上的 crontab 並沒有被廢棄，我才把矛頭指向 Vim</p>
 
 <p>找解法找了很久，最後才靠著某篇回答，在 <code>.vimrc</code> 裡加上一列設定處理掉這個狀況：</p>
-
-<pre><code class="language-vim">set nowritebackup
-</code></pre>
-
+<div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="nx">set</span> <span class="nx">nowritebackup</span></code></pre></div>
 <p>它的起因是 Vim 對「修改檔案」這件事的處理方式，更精確地說是 <code>backupcopy</code> 這個選項</p>
 
 <p>檢查 <a href="http://vimdoc.sourceforge.net/htmldoc/options.html#" title="backupcopy"><code>:set backupcopy</code></a> 的內容可以發現，當其值為 <code>yes</code> 時，Vim 會先複製一份原始檔案之後，才修改原始檔案；而其值為 <code>no</code> 時，則會直接把原始檔案改名，再建立新檔案</p>
@@ -73,10 +43,7 @@
 <p>2017-10-24 edit: 事隔一年多後，又在網路上看到有人也踩到一樣的問題<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup></p>
 
 <p>不同的是，對方找到的解法跟我找到的解法不太一樣。對方所找到的文章裡<sup class="footnote-ref" id="fnref:2"><a href="#fn:2">2</a></sup>所給的解法是：</p>
-
-<pre><code class="language-vim">autocmd filetype crontab setlocal nobackup nowritebackup
-</code></pre>
-<div class="footnotes">
+<div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="nx">autocmd</span> <span class="nx">filetype</span> <span class="nx">crontab</span> <span class="nx">setlocal</span> <span class="nx">nobackup</span> <span class="nx">nowritebackup</span></code></pre></div><div class="footnotes">
 
 <hr />
 
@@ -88,40 +55,14 @@
 </ol>
 </div>
 
+    </section>
 </main>
 
-    <footer>
-      
-<script>
-(function() {
-  function center_el(tagName) {
-    var tags = document.getElementsByTagName(tagName), i, tag;
-    for (i = 0; i < tags.length; i++) {
-      tag = tags[i];
-      var parent = tag.parentElement;
-      
-      if (parent.childNodes.length === 1) {
-        
-        if (parent.nodeName === 'A') {
-          parent = parent.parentElement;
-          if (parent.childNodes.length != 1) continue;
-        }
-        if (parent.nodeName === 'P') parent.style.textAlign = 'center';
-      }
-    }
-  }
-  var tagNames = ['img', 'embed', 'object'];
-  for (var i = 0; i < tagNames.length; i++) {
-    center_el(tagNames[i]);
-  }
-})();
-</script>
-
-      
-      <hr/>
-      Created with <a href="https://gohugo.io/">Hugo</a> and <a href="https://themes.gohugo.io/hugo-classic/">Hugo-Classic</a>
-      
-    </footer>
-  </body>
+        </div><hr class="w-50">
+<footer class="mw7 mw7-ns mb4 ph5 ph5-ns center">
+    <div class="mt4">
+        <span class="f6 db tc">Powered by <a href="https://gohugo.io/" target="_blank" class="link dim dark-blue fw6">Hugo</a></span>
+    </div>
+</footer>
+</body>
 </html>
-
