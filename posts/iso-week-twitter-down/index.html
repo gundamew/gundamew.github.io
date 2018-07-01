@@ -5,26 +5,24 @@
     <title>bschen</title>
     <base href="https://bschen.tw/">
     <link rel="stylesheet" href="/css/tachyons.min.css">
-    <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
-<body><header class="mw7 mw7-ns mt2 mb4 ph5 ph5-ns center">
+<body><header class="mw8 mw8-ns ph4 ph4-ns center mt2 mb4">
     <nav class="pv2 pv2-ns ph3 ph3-ns bg-dark-blue">
         
-        <a class="link dim near-white f6 f5-ns dib mr3" href="/">/Home</a>
+        <a class="link dim near-white f5 f5-ns dib mr3 code" href="/">/Home</a>
         
-        <a class="link dim near-white f6 f5-ns dib mr3" href="/posts">/Posts</a>
+        <a class="link dim near-white f5 f5-ns dib mr3 code" href="/posts">/Posts</a>
         
     </nav>
 </header>
-<div class="mw7 mw7-ns mv4 ph5 ph5-ns center">
+<div class="mw8 mw8-ns ph4 ph4-ns center mv4">
 <main>
     <h1 class="lh-title tc pa1 mb0">ISO Week Date: A Case Study of Twitter Down</h1>
     <h2 class="f4 tc mb4"><time>2014-12-29</time></h2>
     <section class="lh-copy">
-        
-
-<p>由於<strong>本週四</strong>就是 2015 年的元旦了，所以用 <a href="https://en.wikipedia.org/wiki/ISO_week_date">ISO week date</a> 記錄時間的系統，會從<strong>週一</strong>開始進入 2015 年，即使週一的日期是 2014-12-29 才對</p>
+        <p>由於<strong>本週四</strong>就是 2015 年的元旦了，所以用 <a href="https://en.wikipedia.org/wiki/ISO_week_date">ISO week date</a> 記錄時間的系統，會從<strong>週一</strong>開始進入 2015 年，即使週一的日期是 2014-12-29 才對</p>
 
 <p>摘自 Wikipedia 的說明：</p>
 
@@ -39,16 +37,25 @@
 </blockquote>
 
 <p>自己測試的結果：</p>
-<div class="highlight"><pre class="chroma"><code class="language-php" data-lang="php">// 2015
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-php" data-lang="php">// 2015
 echo date(&#39;o&#39;);
 
 // 2014
-echo date(&#39;Y&#39;);</code></pre></div>
+echo date(&#39;Y&#39;);</code></pre></td></tr></table>
+</div>
+</div>
 <p>然後，從今早的傳言看來，Twitter 的 OAuth server 出的包可能就是因為這個……（原文已刪，連結是 <a href="https://www.facebook.com/thehackernews/posts/1051721444841728">https://www.facebook.com/thehackernews/posts/1051721444841728</a>）</p>
 
-<h2 id="2014-12-31-edit">2014-12-31 edit</h2>
-
-<p>從 <a href="https://news.ycombinator.com/item?id=8810157">Hacker News</a> 的消息看來，Twitter 掛站確定是這個原因了：</p>
+<p>2014-12-31 edit: 從 <a href="https://news.ycombinator.com/item?id=8810157">Hacker News</a> 的消息看來，Twitter 掛站確定是這個原因了：</p>
 
 <blockquote>
 <p>If you&rsquo;re using YYYY in your JVM service or %G in anything, fix it now</p>
@@ -66,7 +73,21 @@ Mon Dec 29 00:44:45 EST 2014</p>
 </blockquote>
 
 <p>自己在 Bash 裡下指令的結果：</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ date +%Y
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ date +%Y
 <span class="m">2014</span>
 
 $ date +%G
@@ -75,14 +96,15 @@ $ date +%G
 $ date --help
 %Y   year
 %G   year of ISO week number <span class="o">(</span>see %V<span class="o">)</span><span class="p">;</span> normally useful only with %V
-%V   ISO week number, with Monday as first day of week <span class="o">(</span><span class="m">01</span>..53<span class="o">)</span></code></pre></div>
+%V   ISO week number, with Monday as first day of week <span class="o">(</span><span class="m">01</span>..53<span class="o">)</span></code></pre></td></tr></table>
+</div>
+</div>
     </section>
 </main>
 
-        </div><hr class="w-50">
-<footer class="mw7 mw7-ns mb4 ph5 ph5-ns center">
-    <div class="mt4">
-        <span class="f6 db tc">Powered by <a href="https://gohugo.io/" target="_blank" class="link dim dark-blue fw6">Hugo</a></span>
+        </div><footer class="mw8 mw8-ns ph4 ph4-ns center mv4">
+    <div class="tc">
+        <span class="f6 db">Powered by <a href="https://gohugo.io/" target="_blank" class="link dim dark-blue fw6">Hugo</a></span>
     </div>
 </footer>
 </body>

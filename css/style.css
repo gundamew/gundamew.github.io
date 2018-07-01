@@ -4,16 +4,20 @@ blockquote {
     padding: .5rem 1rem;
 }
 
+/* Override highlighter styles */
+
 .chroma {
-    overflow-x: auto;
-    padding: 1rem;
     border-radius: 4px;
 }
 
-code {
-    background-color: #f0f0f0;
-    padding: 1px 4px;
-    border-radius: 4px;
+.chroma .lntd:first-child {
+    padding-left: .4rem;
+    padding-right: .8rem;
+}
+
+.chroma .ln,
+.chroma .lnt {
+    opacity: .5;
 }
 
 /* Copied from TACHYONS */

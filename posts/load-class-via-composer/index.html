@@ -5,25 +5,54 @@
     <title>bschen</title>
     <base href="https://bschen.tw/">
     <link rel="stylesheet" href="/css/tachyons.min.css">
-    <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
-<body><header class="mw7 mw7-ns mt2 mb4 ph5 ph5-ns center">
+<body><header class="mw8 mw8-ns ph4 ph4-ns center mt2 mb4">
     <nav class="pv2 pv2-ns ph3 ph3-ns bg-dark-blue">
         
-        <a class="link dim near-white f6 f5-ns dib mr3" href="/">/Home</a>
+        <a class="link dim near-white f5 f5-ns dib mr3 code" href="/">/Home</a>
         
-        <a class="link dim near-white f6 f5-ns dib mr3" href="/posts">/Posts</a>
+        <a class="link dim near-white f5 f5-ns dib mr3 code" href="/posts">/Posts</a>
         
     </nav>
 </header>
-<div class="mw7 mw7-ns mv4 ph5 ph5-ns center">
+<div class="mw8 mw8-ns ph4 ph4-ns center mv4">
 <main>
     <h1 class="lh-title tc pa1 mb0">Loading Classes without Namespace via Composer</h1>
     <h2 class="f4 tc mb4"><time>2017-10-28</time></h2>
     <section class="lh-copy">
         <p>沒有設定 namespace 或沒有依照 PSR-4 規範的 PHP class 檔案，依然可以透過 Composer 載入。以綠界的 SDK <a href="https://github.com/ECPay/ECPayAIO_PHP">ECPay/ECPayAIO_PHP</a> 為例，在 <code>composer.json</code> 中加入下列設定：</p>
-<div class="highlight"><pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-json" data-lang="json"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
     <span class="nt">&#34;autoload&#34;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&#34;classmap&#34;</span><span class="p">:</span> <span class="p">[</span>
             <span class="s2">&#34;vendor/ECPay/ECPayAIO_PHP/AioSDK/sdk&#34;</span>
@@ -47,13 +76,24 @@
             <span class="p">}</span>
         <span class="p">}</span>
     <span class="p">]</span>
-<span class="p">}</span></code></pre></div>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>⚠️ <code>autoload.classmap</code> 那裡，因為 <code>vendor/ECPay/ECPayAIO_PHP/ApplePaySDK</code> 和 <code>vendor/ECPay/ECPayAIO_PHP/AioSDK</code> 使用了相同的 method 名稱，又沒有設定 namespace。所以如果想把路徑設為 <code>vendor/ECPay/ECPayAIO_PHP</code> 一次載入所有的 class 的話，會因為 method 名稱重複產生衝突。把 <code>ApplePaySDK</code> 和 <code>AioSDK</code> 路徑分開列入 <code>autoload.classmap</code> 也沒用，目前尚未找到解法</p>
 
-<p>⚠️ <code>repositories.package</code> 底下，<code>source</code> 和 <code>dist</code> 根據安裝偏好 <code>preferred-install</code> 的設定，擇一使用即可。為了操作靈活，我就二邊都設定了</p>
+<p>⚠️ <code>repositories.package</code> 底下，<code>source</code> 和 <code>dist</code> 根據 Composer 的安裝偏好 <code>preferred-install</code> 的設定，擇一使用即可。為了操作靈活，我就二邊都設定了</p>
 
 <p>最後在使用 class 時，記得在開頭加上反斜線 <code>\</code> 註明是 global class</p>
-<div class="highlight"><pre class="chroma"><code class="language-php" data-lang="php">$ecpay = new \ECPay_AllInOne();</code></pre></div>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-php" data-lang="php">$ecpay = new \ECPay_AllInOne();</code></pre></td></tr></table>
+</div>
+</div>
+<hr />
+
 <ul>
 <li><a href="https://getcomposer.org/doc/05-repositories.md#packages">Repositories - Composer</a></li>
 <li><a href="https://getcomposer.org/doc/04-schema.md#repositories">The composer.json Schema - Composer</a></li>
@@ -64,10 +104,9 @@
     </section>
 </main>
 
-        </div><hr class="w-50">
-<footer class="mw7 mw7-ns mb4 ph5 ph5-ns center">
-    <div class="mt4">
-        <span class="f6 db tc">Powered by <a href="https://gohugo.io/" target="_blank" class="link dim dark-blue fw6">Hugo</a></span>
+        </div><footer class="mw8 mw8-ns ph4 ph4-ns center mv4">
+    <div class="tc">
+        <span class="f6 db">Powered by <a href="https://gohugo.io/" target="_blank" class="link dim dark-blue fw6">Hugo</a></span>
     </div>
 </footer>
 </body>
