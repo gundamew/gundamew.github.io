@@ -4,9 +4,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>bschen</title>
     <base href="https://bschen.tw/">
-    <link rel="stylesheet" href="/css/tachyons.min.css">
-    <link rel="stylesheet" href="/css/syntax.css">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://bschen.tw/css/tachyons.min.css">
+    <link rel="stylesheet" href="https://bschen.tw/css/highlight.solarized-light.min.css">
+    <link rel="stylesheet" href="https://bschen.tw/css/style.css">
 </head>
 <body><header class="mw8 mw8-ns ph4 ph4-ns center mt2 mb4">
     <nav class="pv2 pv2-ns ph3 ph3-ns bg-dark-blue">
@@ -31,14 +31,10 @@
 <p>一開始我以為是 Apple 不使用 crontab 而只用自家的 launchd。但看了文件之後發現 macOS 上的 crontab 並沒有被廢棄，我才把矛頭指向 Vim</p>
 
 <p>找解法找了很久，最後才靠著某篇回答，在 <code>.vimrc</code> 裡加上一列設定處理掉這個狀況：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-vim" data-lang="vim"><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-vim" data-lang="vim"><span class="nx">set</span> <span class="nx">nowritebackup</span></code></pre></td></tr></table>
-</div>
-</div>
+
+<pre><code class="language-vim">set nowritebackup
+</code></pre>
+
 <p>它的起因是 Vim 對「修改檔案」這件事的處理方式，更精確地說是 <code>backupcopy</code> 這個選項</p>
 
 <p>檢查 <a href="http://vimdoc.sourceforge.net/htmldoc/options.html#" title="backupcopy"><code>:set backupcopy</code></a> 的內容可以發現，當其值為 <code>yes</code> 時，Vim 會先複製一份原始檔案之後，才修改原始檔案；而其值為 <code>no</code> 時，則會直接把原始檔案改名，再建立新檔案</p>
@@ -50,14 +46,10 @@
 <p>2017-10-24 edit: 事隔一年多後，又在網路上看到有人也踩到一樣的問題<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup></p>
 
 <p>不同的是，對方找到的解法跟我找到的解法不太一樣。對方所找到的文章裡<sup class="footnote-ref" id="fnref:2"><a href="#fn:2">2</a></sup>所給的解法是：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-vim" data-lang="vim"><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-vim" data-lang="vim"><span class="nx">autocmd</span> <span class="nx">filetype</span> <span class="nx">crontab</span> <span class="nx">setlocal</span> <span class="nx">nobackup</span> <span class="nx">nowritebackup</span></code></pre></td></tr></table>
-</div>
-</div><div class="footnotes">
+
+<pre><code class="language-vim">autocmd filetype crontab setlocal nobackup nowritebackup
+</code></pre>
+<div class="footnotes">
 
 <hr />
 
@@ -77,5 +69,7 @@
         <span class="f6 db">Powered by <a href="https://gohugo.io/" target="_blank" class="link dim dark-blue fw6">Hugo</a></span>
     </div>
 </footer>
+<script src="https://bschen.tw/js/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 </body>
 </html>

@@ -4,9 +4,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>bschen</title>
     <base href="https://bschen.tw/">
-    <link rel="stylesheet" href="/css/tachyons.min.css">
-    <link rel="stylesheet" href="/css/syntax.css">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://bschen.tw/css/tachyons.min.css">
+    <link rel="stylesheet" href="https://bschen.tw/css/highlight.solarized-light.min.css">
+    <link rel="stylesheet" href="https://bschen.tw/css/style.css">
 </head>
 <body><header class="mw8 mw8-ns ph4 ph4-ns center mt2 mb4">
     <nav class="pv2 pv2-ns ph3 ph3-ns bg-dark-blue">
@@ -31,47 +31,30 @@
 <p>透過網路搜尋到的資料，大概知道了要先把必須的套件裝上，才能把 Xdebug 加進 container 裡。而這些必須的套件其實在官方的 image 裡都有裝，只是官方的 image 在用完這些套件之後，就把這些套件刪除以節省空間了<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup></p>
 
 <p>這也是 Alpine Linux 節省空間的小秘訣<sup class="footnote-ref" id="fnref:2"><a href="#fn:2">2</a></sup>：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">$ apk add --virtual mypacks gcc vim
-$ apk del mypacks</code></pre></td></tr></table>
-</div>
-</div>
+
+<pre><code class="language-shell">$ apk add --virtual mypacks gcc vim
+$ apk del mypacks
+</code></pre>
+
 <h3 id="1-先把-phpize-deps-定義的套件裝上-3">1. 先把 <code>$PHPIZE_DEPS</code> 定義的套件裝上<sup class="footnote-ref" id="fnref:3"><a href="#fn:3">3</a></sup></h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">$ apk add --no-cache --virtual .build-deps <span class="nv">$PHPIZE_DEPS</span></code></pre></td></tr></table>
-</div>
-</div>
+
+<pre><code class="language-shell">$ apk add --no-cache --virtual .build-deps $PHPIZE_DEPS
+</code></pre>
+
 <h3 id="2-安裝-xdebug">2. 安裝 Xdebug</h3>
 
 <p>因為 Xdebug 目前最新的 stable 版本 2.5.5 還不支援 PHP 7.2，所以要指定安裝為 beta 版<sup class="footnote-ref" id="fnref:4"><a href="#fn:4">4</a></sup>：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">$ pecl install xdebug-2.6.0beta1</code></pre></td></tr></table>
-</div>
-</div>
+
+<pre><code class="language-shell">$ pecl install xdebug-2.6.0beta1
+</code></pre>
+
 <p>2018-03-21 edit: 現在 Xdebug 2.6.0 的 stable 版本已經釋出，所以之後不用再指定版本了</p>
 
 <h3 id="3-再把-phpize-deps-移除以節省空間">3. 再把 <code>$PHPIZE_DEPS</code> 移除以節省空間</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">$ apk del .build-deps</code></pre></td></tr></table>
-</div>
-</div>
+
+<pre><code class="language-shell">$ apk del .build-deps
+</code></pre>
+
 <p>最後結果：</p>
 
 <ul>
@@ -102,5 +85,7 @@ $ apk del mypacks</code></pre></td></tr></table>
         <span class="f6 db">Powered by <a href="https://gohugo.io/" target="_blank" class="link dim dark-blue fw6">Hugo</a></span>
     </div>
 </footer>
+<script src="https://bschen.tw/js/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 </body>
 </html>

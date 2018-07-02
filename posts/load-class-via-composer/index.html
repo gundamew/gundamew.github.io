@@ -4,9 +4,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>bschen</title>
     <base href="https://bschen.tw/">
-    <link rel="stylesheet" href="/css/tachyons.min.css">
-    <link rel="stylesheet" href="/css/syntax.css">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://bschen.tw/css/tachyons.min.css">
+    <link rel="stylesheet" href="https://bschen.tw/css/highlight.solarized-light.min.css">
+    <link rel="stylesheet" href="https://bschen.tw/css/style.css">
 </head>
 <body><header class="mw8 mw8-ns ph4 ph4-ns center mt2 mb4">
     <nav class="pv2 pv2-ns ph3 ph3-ns bg-dark-blue">
@@ -23,75 +23,43 @@
     <h2 class="f4 tc mb4"><time>2017-10-28</time></h2>
     <section class="lh-copy">
         <p>沒有設定 namespace 或沒有依照 PSR-4 規範的 PHP class 檔案，依然可以透過 Composer 載入。以綠界的 SDK <a href="https://github.com/ECPay/ECPayAIO_PHP">ECPay/ECPayAIO_PHP</a> 為例，在 <code>composer.json</code> 中加入下列設定：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-json" data-lang="json"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
-    <span class="nt">&#34;autoload&#34;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&#34;classmap&#34;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="s2">&#34;vendor/ECPay/ECPayAIO_PHP/AioSDK/sdk&#34;</span>
-        <span class="p">]</span>
-    <span class="p">},</span>
-    <span class="nt">&#34;repositories&#34;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">{</span>
-            <span class="nt">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;package&#34;</span><span class="p">,</span>
-            <span class="nt">&#34;package&#34;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;ecpay/ecpayaio_php&#34;</span><span class="p">,</span>
-                <span class="nt">&#34;version&#34;</span><span class="p">:</span> <span class="s2">&#34;dev-master&#34;</span><span class="p">,</span>
-                <span class="nt">&#34;source&#34;</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="nt">&#34;url&#34;</span><span class="p">:</span> <span class="s2">&#34;git@github.com:ECPay/ECPayAIO_PHP.git&#34;</span><span class="p">,</span>
-                    <span class="nt">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;git&#34;</span><span class="p">,</span>
-                    <span class="nt">&#34;reference&#34;</span><span class="p">:</span> <span class="s2">&#34;dev-master&#34;</span>
-                <span class="p">},</span>
-                <span class="nt">&#34;dist&#34;</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="nt">&#34;url&#34;</span><span class="p">:</span> <span class="s2">&#34;https://github.com/ECPay/ECPayAIO_PHP/archive/master.zip&#34;</span><span class="p">,</span>
-                    <span class="nt">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;zip&#34;</span>
-                <span class="p">}</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-    <span class="p">]</span>
-<span class="p">}</span></code></pre></td></tr></table>
-</div>
-</div>
+
+<pre><code class="language-json">{
+    &quot;autoload&quot;: {
+        &quot;classmap&quot;: [
+            &quot;vendor/ECPay/ECPayAIO_PHP/AioSDK/sdk&quot;
+        ]
+    },
+    &quot;repositories&quot;: [
+        {
+            &quot;type&quot;: &quot;package&quot;,
+            &quot;package&quot;: {
+                &quot;name&quot;: &quot;ecpay/ecpayaio_php&quot;,
+                &quot;version&quot;: &quot;dev-master&quot;,
+                &quot;source&quot;: {
+                    &quot;url&quot;: &quot;git@github.com:ECPay/ECPayAIO_PHP.git&quot;,
+                    &quot;type&quot;: &quot;git&quot;,
+                    &quot;reference&quot;: &quot;dev-master&quot;
+                },
+                &quot;dist&quot;: {
+                    &quot;url&quot;: &quot;https://github.com/ECPay/ECPayAIO_PHP/archive/master.zip&quot;,
+                    &quot;type&quot;: &quot;zip&quot;
+                }
+            }
+        }
+    ]
+}
+</code></pre>
+
 <p>⚠️ <code>autoload.classmap</code> 那裡，因為 <code>vendor/ECPay/ECPayAIO_PHP/ApplePaySDK</code> 和 <code>vendor/ECPay/ECPayAIO_PHP/AioSDK</code> 使用了相同的 method 名稱，又沒有設定 namespace。所以如果想把路徑設為 <code>vendor/ECPay/ECPayAIO_PHP</code> 一次載入所有的 class 的話，會因為 method 名稱重複產生衝突。把 <code>ApplePaySDK</code> 和 <code>AioSDK</code> 路徑分開列入 <code>autoload.classmap</code> 也沒用，目前尚未找到解法</p>
 
 <p>⚠️ <code>repositories.package</code> 底下，<code>source</code> 和 <code>dist</code> 根據 Composer 的安裝偏好 <code>preferred-install</code> 的設定，擇一使用即可。為了操作靈活，我就二邊都設定了</p>
 
 <p>最後在使用 class 時，記得在開頭加上反斜線 <code>\</code> 註明是 global class</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php">$ecpay = new \ECPay_AllInOne();</code></pre></td></tr></table>
-</div>
-</div>
+
+<pre><code class="language-php">$ecpay = new \ECPay_AllInOne();
+</code></pre>
+
 <hr />
 
 <ul>
@@ -109,5 +77,7 @@
         <span class="f6 db">Powered by <a href="https://gohugo.io/" target="_blank" class="link dim dark-blue fw6">Hugo</a></span>
     </div>
 </footer>
+<script src="https://bschen.tw/js/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 </body>
 </html>
