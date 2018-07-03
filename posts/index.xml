@@ -6,7 +6,7 @@
     <description>Recent content in Posts on bschen</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cmn-Hant</language>
-    <lastBuildDate>Sun, 06 May 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 06 May 2018 15:28:00 +0800</lastBuildDate>
     
 	<atom:link href="https://bschen.tw/posts/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>Setting the Default Character Set and Collation to UTF-8 Properly in MySQL</title>
       <link>https://bschen.tw/posts/mysql-utf8mb4/</link>
-      <pubDate>Sun, 06 May 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 06 May 2018 15:28:00 +0800</pubDate>
       
       <guid>https://bschen.tw/posts/mysql-utf8mb4/</guid>
       <description>由於 MySQL 8.0 預設的 collation 是 utf8mb4_0900_ai_ci 而不是我原先以為「最精準」的 utf8mb4_unicode_ci，讓我好奇而查了一下，發現12： 0900 代表 Unicode Collation Algorithm (UCA) 的 9.0.0 版本，</description>
@@ -23,16 +23,25 @@
     <item>
       <title>Add Xdebug to Alpine Linux Docker Container</title>
       <link>https://bschen.tw/posts/alpine-docker-xdebug/</link>
-      <pubDate>Wed, 17 Jan 2018 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 17 Jan 2018 15:44:00 +0800</pubDate>
       
       <guid>https://bschen.tw/posts/alpine-docker-xdebug/</guid>
       <description>原本想在以 Docker 建立的 PHP container 裡加上 Xdebug，但是單純在 Dockerfile 裡下 pecl install xdebug 指令的話，會發生找不到 autoconf 套件的錯誤 所使用的 Docker image 是官方的 php:7.2.1-fpm-alpine3.7 透過網路搜尋到的資料</description>
     </item>
     
     <item>
+      <title>Declaring Chinese Language in HTML Properly</title>
+      <link>https://bschen.tw/posts/html-zh-lang-properly/</link>
+      <pubDate>Thu, 23 Nov 2017 11:19:00 +0800</pubDate>
+      
+      <guid>https://bschen.tw/posts/html-zh-lang-properly/</guid>
+      <description>自己在意了很久，但都沒有認真下個結論的問題：在臺灣的正體中文網頁裡，到底 &amp;lt;html lang=&amp;quot;&amp;quot;&amp;gt; 的值該填什麼？ 中文的問題應該找中文的討論吧……但是搜尋到的都只是</description>
+    </item>
+    
+    <item>
       <title>Loading Classes without Namespace via Composer</title>
       <link>https://bschen.tw/posts/load-class-via-composer/</link>
-      <pubDate>Sat, 28 Oct 2017 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 28 Oct 2017 14:24:00 +0800</pubDate>
       
       <guid>https://bschen.tw/posts/load-class-via-composer/</guid>
       <description>沒有設定 namespace 或沒有依照 PSR-4 規範的 PHP class 檔案，依然可以透過 Composer 載入。以綠界的 SDK ECPay/ECPayAIO_PHP 為例，在 composer.json 中加入下列設定： { &amp;quot;autoload&amp;quot;: { &amp;quot;classmap&amp;quot;: [ &amp;quot;vendor/ECPay/ECPayAIO_PHP/AioSDK/sdk&amp;quot; ] }, &amp;quot;repositories&amp;quot;: [ { &amp;quot;type&amp;quot;: &amp;quot;package&amp;quot;, &amp;quot;package&amp;quot;: { &amp;quot;name&amp;quot;: &amp;quot;ecpay/ecpayaio_php&amp;quot;, &amp;quot;version&amp;quot;: &amp;quot;dev-master&amp;quot;, &amp;quot;source&amp;quot;: { &amp;quot;url&amp;quot;:</description>
@@ -41,7 +50,7 @@
     <item>
       <title>Edit crontab with Vim on macOS</title>
       <link>https://bschen.tw/posts/vim-edit-crontab/</link>
-      <pubDate>Thu, 16 Jun 2016 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 16 Jun 2016 00:00:00 +0800</pubDate>
       
       <guid>https://bschen.tw/posts/vim-edit-crontab/</guid>
       <description>在 macOS 上用 Vim 編輯 cron 時，除了會儲存失敗，還會收到下面的錯誤訊息： crontab: temp file must be edited in place 一開始我以為是 Apple 不使用 crontab 而只用自家的 launchd。但看了文件之</description>
@@ -50,7 +59,7 @@
     <item>
       <title>An AES Encryption Implementation in PHP</title>
       <link>https://bschen.tw/posts/php-aes-encryption/</link>
-      <pubDate>Wed, 01 Jun 2016 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 01 Jun 2016 14:52:00 +0800</pubDate>
       
       <guid>https://bschen.tw/posts/php-aes-encryption/</guid>
       <description>雖然網路上找到的大部份程式碼都是用 Mcrypt 模組實作的範例，不過用 OpenSSL 模組來實作的話會更簡潔明瞭： 用 Mcrypt 實作的範例： 實作時還發生了一個小烏龍：由於跟別人</description>
@@ -59,7 +68,7 @@
     <item>
       <title>ISO Week Date: A Case Study of Twitter Down</title>
       <link>https://bschen.tw/posts/iso-week-twitter-down/</link>
-      <pubDate>Mon, 29 Dec 2014 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 29 Dec 2014 10:45:00 +0800</pubDate>
       
       <guid>https://bschen.tw/posts/iso-week-twitter-down/</guid>
       <description>由於本週四就是 2015 年的元旦了，所以用 ISO week date 記錄時間的系統，會從週一開始進入 2015 年，即使週一的日期是 2014-12-29 才對 摘自 Wikipedia 的說明： The first week of the year, hence, always contains 4 January. ISO week</description>
@@ -68,7 +77,7 @@
     <item>
       <title>XSS Case Study</title>
       <link>https://bschen.tw/posts/xss-case-study/</link>
-      <pubDate>Fri, 27 Jun 2014 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 27 Jun 2014 00:00:00 +0800</pubDate>
       
       <guid>https://bschen.tw/posts/xss-case-study/</guid>
       <description>Prologue 在此對我於某公司經手過的攻擊案例做一份概略的整理報告。以下列出的攻擊方式不一定會單獨出現，多半都是混合使用 Cases URL Encoded Attack 攻擊者向使用者發送一段訊</description>

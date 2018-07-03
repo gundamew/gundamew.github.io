@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hant"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Declaring Chinese Language in HTML Properly - bschen</title>
+    <base href="https://bschen.tw/">
+    <link rel="stylesheet" href="https://bschen.tw/css/tachyons.min.css">
+    <link rel="stylesheet" href="https://bschen.tw/css/solarized-light.min.css">
+    <link rel="stylesheet" href="https://bschen.tw/css/style.css">
+</head>
+<body><header class="mw8 mw8-ns ph4 ph4-ns center mt2 mb4">
+    <nav class="pv2 pv2-ns ph3 ph3-ns bg-dark-blue">
+        
+        <a class="link dim near-white f5 f5-ns dib mr3 code" href="/">/Home</a>
+        
+        <a class="link dim near-white f5 f5-ns dib mr3 code" href="/posts">/Posts</a>
+        
+    </nav>
+</header>
+<div class="mw8 mw8-ns ph5 ph5-ns center mv4">
+<main>
+    <h1 class="lh-title tc pa1 mb0">Declaring Chinese Language in HTML Properly</h1>
+    <h2 class="f4 tc mb4"><time>2017-11-23</time></h2>
+    <section class="lh-copy">
+        <p>自己在意了很久，但都沒有認真下個結論的問題：在臺灣的正體中文網頁裡，到底 <code>&lt;html lang=&quot;&quot;&gt;</code> 的值該填什麼？</p>
+
+<p>中文的問題應該找中文的討論吧……但是搜尋到的都只是轉貼文章，或是「我認為」但沒有佐證的說法</p>
+
+<p>只有這個知乎討論看起來靠譜些：<a href="https://www.zhihu.com/question/20797118">网页头部的声明应该是用 lang=&ldquo;zh&rdquo; 还是 lang=&ldquo;zh-cn&rdquo;？ - 知乎</a></p>
+
+<p>我從裡面揀了幾個答案來看：</p>
+
+<ul>
+<li><a href="https://www.zhihu.com/question/20797118/answer/16809331">贺师俊的回答</a></li>
+<li><a href="https://www.zhihu.com/question/20797118/answer/63480740">猎奇怪蜀黍的回答</a></li>
+<li><a href="https://www.zhihu.com/question/20797118/answer/81543429">sinkcup 的回答</a></li>
+</ul>
+
+<p>然後稍微瀏覽了一下答案裡提到的規格書：</p>
+
+<p><a href="https://www.w3.org/TR/html5/dom.html#attr-lang">3 Semantics, structure, and APIs of HTML documents — HTML5</a></p>
+
+<blockquote>
+<p>Its value must be a valid BCP 47 language tag, or the empty string.</p>
+</blockquote>
+
+<p><a href="http://www.ietf.org/rfc/bcp/bcp47.txt">http://www.ietf.org/rfc/bcp/bcp47.txt</a></p>
+
+<p>從 BCP 47 看來，好像用 <code>zh-Hant</code> 就夠了？</p>
+
+<p><a href="https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry">https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry</a></p>
+
+<p>IANA 的文件指明，比起 <code>zh-cmn-Hant</code> 更建議使用 <code>cmn-Hant</code>。而 <code>zh-Hant</code> 和 <code>zh-Hant-TW</code> 都被標為 redundant</p>
+
+<p>所以目前我的結論是：用 <code>cmn-Hant</code>，然後為了相容再加上前綴 <code>zh-</code> 變成 <code>zh-cmn-Hant</code> 即可。後綴 <code>-TW</code> 可不加，除非是要特別標出與其他地方中文的不同之處，例如「土豆（<code>cmn-Hans-CN</code>）」和「馬鈴薯（<code>cmn-Hant-TW</code>）」</p>
+
+<p>語言分類與定義的規範就不再列在這裡，而這也只是針對文字部份的筆記而已，聲音的部份暫不研究</p>
+
+    </section>
+</main>
+
+        </div><footer class="mw8 mw8-ns ph4 ph4-ns center mt5 mb4">
+    <div class="tc">
+        <span class="f6 db">Powered by <a href="https://gohugo.io/" target="_blank" class="link dim dark-blue fw6">Hugo</a></span>
+    </div>
+</footer>
+<script src="https://bschen.tw/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>
