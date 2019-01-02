@@ -2,11 +2,13 @@
 <html lang="zh-cmn-Hant"><head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>XSS Case Study - bschen</title>
+    <title>XSS Case Study - Bing-Sheng Chen</title>
     <base href="https://bschen.tw/">
-    <link rel="stylesheet" href="https://bschen.tw/css/normalize.min.css">
-    <link rel="stylesheet" href="https://bschen.tw/css/solarized-light.min.css">
-    <link rel="stylesheet" href="https://bschen.tw/css/style.css">
+    
+    
+    
+    
+    <link rel="stylesheet" href="https://bschen.tw/css/main.min.77a5141f9ea67f9ba748fc3698ced30b1fe5cbd999287eedeeef6263b735f340.css">
 </head>
 <body><header>
     <nav class="breadcrumb">
@@ -20,14 +22,14 @@
 <div class="container">
 <main id="single">
     <h1>XSS Case Study</h1>
-    <h2><time datetime="2014-06-27T00:00:00&#43;0800">2014-06-27</time>
+    <h2><time datetime="2014-06-27T12:00:00&#43;0000">2014-06-27</time>
 </h2>
     <section class="post-content">
         
 
 <h2 id="prologue">Prologue</h2>
 
-<p>在此對我於某公司經手過的攻擊案例做一份概略的整理報告。以下列出的攻擊方式不一定會單獨出現，多半都是混合使用</p>
+<p>在此對我於露天經手過的攻擊案例做一份概略的整理報告。以下列出的攻擊方式不一定會單獨出現，多半都是混合使用</p>
 
 <h2 id="cases">Cases</h2>
 
@@ -47,19 +49,19 @@
 
 <h3 id="deceptive-phishing">Deceptive Phishing</h3>
 
-<p>攻擊者向使用者發送一段訊息，內容含有與某公司網址極為相似的假網址：</p>
+<p>攻擊者向使用者發送一段訊息，內容含有與露天網址極為相似的假網址：</p>
 
 <blockquote>
 <p>您好，我已經下標了，麻煩確認一下這款是否還有現貨？</p>
 
-<p><a href="http://shops.com.tw/item/xxxxx">http://shops.com.tw/item/xxxxx</a></p>
+<p><a href="http://goods.rutens.com.tw/item/show?12345678901234">http://goods.rutens.com.tw/item/show?12345678901234</a></p>
 
 <p>最好可以一起合併結帳，過兩天就去匯款，請核對謝謝！</p>
 </blockquote>
 
-<p>其中 <code>shops.com.tw</code> 並不是屬於某公司的網址，正確的網址應該是 <code>shop.com.tw</code> 才對</p>
+<p>其中 <code>goods.rutens.com.tw</code> 並不是屬於露天的網址，正確的網址應該是 <code>goods.ruten.com.tw</code> 才對</p>
 
-<p>而使用者點擊假網址之後，就會被重新導向到攻擊者仿造的某公司登入頁面。就算使用者主動檢查登入頁面的網址，也只會看到像是 <code>http://account.shops.com.tw/login</code> 這樣，與真正的登入網址極為相似的假網址</p>
+<p>而使用者點擊假網址之後，就會被重新導向到攻擊者仿造的露天登入頁面。就算使用者主動檢查登入頁面的網址，也只會看到像是 <code>http://members.rutens.com.tw/user/login.html</code> 這樣，與真正的露天登入網址極為相似的假網址</p>
 
 <p>如果沒有非常仔細地檢查的話，很容易就會上當</p>
 
@@ -68,8 +70,8 @@
 <p>出現數量最多的攻擊方式，多半是在 <code>&lt;form&gt;</code> 中輸入攻擊字串，然後在使用者接收到 <code>&lt;form&gt;</code> 送出的內容後觸發攻擊。舉例來說：</p>
 
 <ul>
-<li>將商品分類的名稱命名為 <code>&lt;script src=//hack.u&gt;</code>，當使用者開啟包含商品分類的網頁時就會觸發，被重新導向到攻擊者的網頁</li>
-<li>在發送訊息時插入 <code>&lt;iframe src=//devil.c&amp;#99;&gt;</code> 字串。當使用者要回覆訊息時，因為網頁上會顯示引言的關係，所以在瀏覽器讀到攻擊字串後，使用者就會被重新導向到攻擊者的網頁</li>
+<li>將自訂商品分類的名稱命名為 <code>&lt;script src=//hack.u&gt;</code>，當使用者開啟賣場首頁時就會觸發，被重新導向到攻擊者的網頁</li>
+<li>在發送悄悄話時插入 <code>&lt;iframe src=//devil.c&amp;#99;&gt;</code> 字串。當使用者要回覆悄悄話時，因為網頁上會顯示引言的關係，所以在瀏覽器讀到攻擊字串後，使用者就會被重新導向到攻擊者的網頁</li>
 <li>結帳時，在購買人的 email 欄位輸入 <code>&lt;SCRIPT SRC=bad/url&gt;&lt;/SCRIPT&gt;</code> 字串，當使用者查看結帳明細時就會觸發攻擊，被重新導向到攻擊者的網頁</li>
 </ul>
 
@@ -92,9 +94,27 @@
 <p>簡單來說：</p>
 
 <ol>
-<li>不要相信使用者輸入的<strong>任何</strong>內容</li>
-<li>所有輸入的值<strong>必須且只能</strong>是你預期的值</li>
+<li>不要相信使用者輸入的 <strong>任何</strong> 內容</li>
+<li>所有輸入的值 <strong>必須且只能</strong> 是你預期的值</li>
 </ol>
+
+<p>而這二點在實務上會有所取捨，視情況而定</p>
+
+<p>例如，在使用者收到悄悄話時，露天會另外發出一封包含悄悄話內容的通知信到使用者的信箱</p>
+
+<p>此時若是信件內容中含有 code injection 的程式碼，由於各種 mail client 處理信件內容的方式不同，我們也無法預期使用者在打開信件後會發生什麼狀況。考量到開發成本，最後我們決定信件一律只包含固定內容的提示訊息。如果使用者要查看悄悄話的內容，再透過信件中的連結回到露天的網站查閱就好</p>
+
+<p>以這個案例來說，就根本不用考慮「要怎麼處理信件中的字串」這種問題了</p>
+
+<h2 id="solutions">Solutions</h2>
+
+<h3 id="php">PHP</h3>
+
+<ul>
+<li>常用的有 <a href="http://php.net/manual/en/function.htmlentities.php"><code>htmlentities</code></a> 和 <a href="http://www.php.net/manual/en/function.htmlspecialchars.php"><code>htmlspecialchars</code></a> 等</li>
+<li>自 PHP 5.2 起還多了 <a href="http://www.php.net/manual/en/book.filter.php">filter</a> 系列的 function，可以參考使用</li>
+<li>或是使用露天自訂的 class <code>ParseInput</code> 與 <code>UString</code> 等</li>
+</ul>
 
     </section>
 </main>
@@ -102,7 +122,8 @@
         </div><footer>
     <span class="footer-text">Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a></span>
 </footer>
-<script src="https://bschen.tw/js/highlight.pack.js"></script>
+
+<script src="https://bschen.tw/js/highlight.pack.13389e4e093fc0b3466287ead64c1f9fc3007d7703813a413de3f046ea09a346.js" integrity="sha256-EzieTgk/wLNGYofq1kwfn8MAfXcDgTpBPePwRuoJo0Y="></script>
 <script>hljs.initHighlightingOnLoad();</script>
 </body>
 </html>

@@ -2,11 +2,13 @@
 <html lang="zh-cmn-Hant"><head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Edit crontab with Vim on macOS - bschen</title>
+    <title>Edit crontab with Vim on macOS - Bing-Sheng Chen</title>
     <base href="https://bschen.tw/">
-    <link rel="stylesheet" href="https://bschen.tw/css/normalize.min.css">
-    <link rel="stylesheet" href="https://bschen.tw/css/solarized-light.min.css">
-    <link rel="stylesheet" href="https://bschen.tw/css/style.css">
+    
+    
+    
+    
+    <link rel="stylesheet" href="https://bschen.tw/css/main.min.77a5141f9ea67f9ba748fc3698ced30b1fe5cbd999287eedeeef6263b735f340.css">
 </head>
 <body><header>
     <nav class="breadcrumb">
@@ -20,7 +22,7 @@
 <div class="container">
 <main id="single">
     <h1>Edit crontab with Vim on macOS</h1>
-    <h2><time datetime="2016-06-16T00:00:00&#43;0800">2016-06-16</time>
+    <h2><time datetime="2016-06-16T12:00:00&#43;0000">2016-06-16</time>
 </h2>
     <section class="post-content">
         <p>在 macOS 上用 Vim 編輯 cron 時，除了會儲存失敗，還會收到下面的錯誤訊息：</p>
@@ -31,7 +33,7 @@
 
 <p>一開始我以為是 Apple 不使用 crontab 而只用自家的 launchd。但看了文件之後發現 macOS 上的 crontab 並沒有被廢棄，我才把矛頭指向 Vim</p>
 
-<p>找解法找了很久，最後才靠著某篇回答，在 <code>.vimrc</code> 裡加上一列設定處理掉這個狀況：</p>
+<p>找解法找了很久，最後才靠著某篇回答，在 <code>.vimrc</code> 裡加上一列設定處理掉這個狀況<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup>：</p>
 
 <pre><code class="language-vim">set nowritebackup
 </code></pre>
@@ -44,9 +46,9 @@
 
 <p>非 Unix 系統上的 Vim 的這個選項預設值是 <code>auto</code>，所以要再另外設定為 <code>yes</code> 才能避開這個狀況。當然也可以直接把 backup 選項給關掉</p>
 
-<p>2017-10-24 edit: 事隔一年多後，又在網路上看到有人也踩到一樣的問題<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup></p>
+<p>2017-10-24 edit: 事隔一年多後，又在網路上看到有人也踩到一樣的問題<sup class="footnote-ref" id="fnref:2"><a href="#fn:2">2</a></sup></p>
 
-<p>不同的是，對方找到的解法跟我找到的解法不太一樣。對方所找到的文章裡<sup class="footnote-ref" id="fnref:2"><a href="#fn:2">2</a></sup>所給的解法是：</p>
+<p>不同的是，對方找到的解法跟我找到的解法不太一樣。對方所找到的文章裡<sup class="footnote-ref" id="fnref:3"><a href="#fn:3">3</a></sup>所給的解法是：</p>
 
 <pre><code class="language-vim">autocmd filetype crontab setlocal nobackup nowritebackup
 </code></pre>
@@ -55,10 +57,12 @@
 <hr />
 
 <ol>
-<li id="fn:1"><a href="https://www.facebook.com/othree/posts/10156040898604208">https://www.facebook.com/othree/posts/10156040898604208</a>
+<li id="fn:1"><a href="https://www.plurk.com/p/lonkxt">https://www.plurk.com/p/lonkxt</a>
  <a class="footnote-return" href="#fnref:1">↩</a></li>
-<li id="fn:2"><a href="http://vim.wikia.com/wiki/Editing_crontab">http://vim.wikia.com/wiki/Editing_crontab</a>
+<li id="fn:2"><a href="https://www.plurk.com/p/mh5n8g">https://www.plurk.com/p/mh5n8g</a>
  <a class="footnote-return" href="#fnref:2">↩</a></li>
+<li id="fn:3"><a href="http://vim.wikia.com/wiki/Editing_crontab">http://vim.wikia.com/wiki/Editing_crontab</a>
+ <a class="footnote-return" href="#fnref:3">↩</a></li>
 </ol>
 </div>
 
@@ -68,7 +72,8 @@
         </div><footer>
     <span class="footer-text">Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a></span>
 </footer>
-<script src="https://bschen.tw/js/highlight.pack.js"></script>
+
+<script src="https://bschen.tw/js/highlight.pack.13389e4e093fc0b3466287ead64c1f9fc3007d7703813a413de3f046ea09a346.js" integrity="sha256-EzieTgk/wLNGYofq1kwfn8MAfXcDgTpBPePwRuoJo0Y="></script>
 <script>hljs.initHighlightingOnLoad();</script>
 </body>
 </html>

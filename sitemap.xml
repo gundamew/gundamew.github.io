@@ -3,12 +3,59 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://bschen.tw/posts/mysql-utf8mb4/</loc>
+    <lastmod>2018-05-06T15:28:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bschen.tw/posts/alpine-docker-xdebug/</loc>
+    <lastmod>2018-01-17T15:44:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bschen.tw/posts/html-zh-lang-properly/</loc>
+    <lastmod>2017-11-23T11:19:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bschen.tw/posts/load-class-via-composer/</loc>
+    <lastmod>2017-10-28T14:24:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bschen.tw/posts/vim-edit-crontab/</loc>
+    <lastmod>2016-06-16T12:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bschen.tw/posts/php-aes-encryption/</loc>
+    <lastmod>2016-06-01T14:52:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bschen.tw/posts/iso-week-twitter-down/</loc>
+    <lastmod>2014-12-29T10:45:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bschen.tw/posts/xss-case-study/</loc>
+    <lastmod>2014-06-27T12:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://bschen.tw/</loc>
+    <lastmod>2018-05-06T15:28:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://bschen.tw/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://bschen.tw/posts/</loc>
+    <lastmod>2018-05-06T15:28:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

@@ -2,11 +2,13 @@
 <html lang="zh-cmn-Hant"><head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>An AES Encryption Implementation in PHP - bschen</title>
+    <title>An AES Encryption Implementation in PHP - Bing-Sheng Chen</title>
     <base href="https://bschen.tw/">
-    <link rel="stylesheet" href="https://bschen.tw/css/normalize.min.css">
-    <link rel="stylesheet" href="https://bschen.tw/css/solarized-light.min.css">
-    <link rel="stylesheet" href="https://bschen.tw/css/style.css">
+    
+    
+    
+    
+    <link rel="stylesheet" href="https://bschen.tw/css/main.min.77a5141f9ea67f9ba748fc3698ced30b1fe5cbd999287eedeeef6263b735f340.css">
 </head>
 <body><header>
     <nav class="breadcrumb">
@@ -20,20 +22,20 @@
 <div class="container">
 <main id="single">
     <h1>An AES Encryption Implementation in PHP</h1>
-    <h2><time datetime="2016-06-01T14:52:00&#43;0800">2016-06-01</time>
+    <h2><time datetime="2016-06-01T14:52:00&#43;0000">2016-06-01</time>
 </h2>
     <section class="post-content">
-        <p>雖然網路上找到的大部份程式碼都是用 <a href="http://php.net/manual/en/book.mcrypt.php">Mcrypt 模組</a>實作的範例，不過用 <a href="http://php.net/manual/en/book.openssl.php">OpenSSL 模組</a>來實作的話會更簡潔明瞭：</p>
+        <p>雖然網路上找到的大部份程式碼都是用 Mcrypt extension 實作的範例，不過用 OpenSSL extension 來實作的話會更簡潔明瞭：</p>
 
-<script src="https://gist.github.com/gundamew/3462de49997eeb1fe34753d6c27f7646.js"></script>
+<p><a href="https://gist.github.com/gundamew/3462de49997eeb1fe34753d6c27f7646">https://gist.github.com/gundamew/3462de49997eeb1fe34753d6c27f7646</a></p>
 
 <p>用 Mcrypt 實作的範例：</p>
 
-<script src="https://gist.github.com/gundamew/2f3705db4c421f1ddd2655a72697abc4.js"></script>
+<p><a href="https://gist.github.com/gundamew/2f3705db4c421f1ddd2655a72697abc4">https://gist.github.com/gundamew/2f3705db4c421f1ddd2655a72697abc4</a></p>
 
 <p>實作時還發生了一個小烏龍：由於跟別人事先約定好要用 AES 128 加密，可是共用的密鑰長度卻是 32 個字元（256 bits），讓我在用 <code>AES-128-CBC</code> 測試時一直沒辦法解密出正確的原文，之後心血來潮改用 <code>AES-256-CBC</code> 測試後就成功解密了。找資料時看到<a href="http://stackoverflow.com/a/4413290/6404056">別人遇到的類似狀況</a>，我才確定問題出在密鑰的長度上</p>
 
-<hr />
+<p>其他參考資料：</p>
 
 <ul>
 <li><a href="https://www.urbaninsight.com/2012/06/13/encrypt-and-decrypt-strings-php">Encrypt and decrypt strings in PHP | Urban Insight</a></li>
@@ -48,7 +50,8 @@
         </div><footer>
     <span class="footer-text">Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a></span>
 </footer>
-<script src="https://bschen.tw/js/highlight.pack.js"></script>
+
+<script src="https://bschen.tw/js/highlight.pack.13389e4e093fc0b3466287ead64c1f9fc3007d7703813a413de3f046ea09a346.js" integrity="sha256-EzieTgk/wLNGYofq1kwfn8MAfXcDgTpBPePwRuoJo0Y="></script>
 <script>hljs.initHighlightingOnLoad();</script>
 </body>
 </html>

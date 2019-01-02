@@ -2,11 +2,13 @@
 <html lang="zh-cmn-Hant"><head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Loading Classes without Namespace via Composer - bschen</title>
+    <title>Loading Classes without Namespace via Composer - Bing-Sheng Chen</title>
     <base href="https://bschen.tw/">
-    <link rel="stylesheet" href="https://bschen.tw/css/normalize.min.css">
-    <link rel="stylesheet" href="https://bschen.tw/css/solarized-light.min.css">
-    <link rel="stylesheet" href="https://bschen.tw/css/style.css">
+    
+    
+    
+    
+    <link rel="stylesheet" href="https://bschen.tw/css/main.min.77a5141f9ea67f9ba748fc3698ced30b1fe5cbd999287eedeeef6263b735f340.css">
 </head>
 <body><header>
     <nav class="breadcrumb">
@@ -20,7 +22,7 @@
 <div class="container">
 <main id="single">
     <h1>Loading Classes without Namespace via Composer</h1>
-    <h2><time datetime="2017-10-28T14:24:00&#43;0800">2017-10-28</time>
+    <h2><time datetime="2017-10-28T14:24:00&#43;0000">2017-10-28</time>
 </h2>
     <section class="post-content">
         <p>沒有設定 namespace 或沒有依照 PSR-4 規範的 PHP class 檔案，依然可以透過 Composer 載入。以綠界的 SDK <a href="https://github.com/ECPay/ECPayAIO_PHP">ECPay/ECPayAIO_PHP</a> 為例，在 <code>composer.json</code> 中加入下列設定：</p>
@@ -56,12 +58,12 @@
 
 <p>⚠️ <code>repositories.package</code> 底下，<code>source</code> 和 <code>dist</code> 根據 Composer 的安裝偏好 <code>preferred-install</code> 的設定，擇一使用即可。為了操作靈活，我就二邊都設定了</p>
 
-<p>最後在使用 class 時，記得在開頭加上反斜線 <code>\</code> 註明是 global class</p>
+<p>最後在使用 class 時，記得在開頭加上反斜線 <code>/</code> 註明是 global class</p>
 
-<pre><code class="language-php">$ecpay = new \ECPay_AllInOne();
+<pre><code class="language-php">$ecpay = new /ECPay_AllInOne();
 </code></pre>
 
-<hr />
+<p>參考資料：</p>
 
 <ul>
 <li><a href="https://getcomposer.org/doc/05-repositories.md#packages">Repositories - Composer</a></li>
@@ -76,7 +78,8 @@
         </div><footer>
     <span class="footer-text">Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a></span>
 </footer>
-<script src="https://bschen.tw/js/highlight.pack.js"></script>
+
+<script src="https://bschen.tw/js/highlight.pack.13389e4e093fc0b3466287ead64c1f9fc3007d7703813a413de3f046ea09a346.js" integrity="sha256-EzieTgk/wLNGYofq1kwfn8MAfXcDgTpBPePwRuoJo0Y="></script>
 <script>hljs.initHighlightingOnLoad();</script>
 </body>
 </html>

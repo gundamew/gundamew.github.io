@@ -2,11 +2,13 @@
 <html lang="zh-cmn-Hant"><head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Add Xdebug to Alpine Linux Docker Container - bschen</title>
+    <title>Add Xdebug to Alpine Linux Docker Container - Bing-Sheng Chen</title>
     <base href="https://bschen.tw/">
-    <link rel="stylesheet" href="https://bschen.tw/css/normalize.min.css">
-    <link rel="stylesheet" href="https://bschen.tw/css/solarized-light.min.css">
-    <link rel="stylesheet" href="https://bschen.tw/css/style.css">
+    
+    
+    
+    
+    <link rel="stylesheet" href="https://bschen.tw/css/main.min.77a5141f9ea67f9ba748fc3698ced30b1fe5cbd999287eedeeef6263b735f340.css">
 </head>
 <body><header>
     <nav class="breadcrumb">
@@ -20,7 +22,7 @@
 <div class="container">
 <main id="single">
     <h1>Add Xdebug to Alpine Linux Docker Container</h1>
-    <h2><time datetime="2018-01-17T15:44:00&#43;0800">2018-01-17</time>
+    <h2><time datetime="2018-01-17T15:44:00&#43;0000">2018-01-17</time>
 </h2>
     <section class="post-content">
         
@@ -33,27 +35,27 @@
 
 <p>這也是 Alpine Linux 節省空間的小秘訣<sup class="footnote-ref" id="fnref:2"><a href="#fn:2">2</a></sup>：</p>
 
-<pre><code class="language-bash">$ apk add --virtual mypacks gcc vim
+<pre><code class="language-shell">$ apk add --virtual mypacks gcc vim
 $ apk del mypacks
 </code></pre>
 
-<h3 id="1-先把-phpize-deps-定義的套件裝上-3">1. 先把 <code>$PHPIZE_DEPS</code> 定義的套件裝上<sup class="footnote-ref" id="fnref:3"><a href="#fn:3">3</a></sup></h3>
+<h2 id="1-先把-phpize-deps-定義的套件裝上-3">1. 先把 <code>$PHPIZE_DEPS</code> 定義的套件裝上<sup class="footnote-ref" id="fnref:3"><a href="#fn:3">3</a></sup></h2>
 
-<pre><code class="language-bash">$ apk add --no-cache --virtual .build-deps $PHPIZE_DEPS
+<pre><code class="language-shell">$ apk add --no-cache --virtual .build-deps $PHPIZE_DEPS
 </code></pre>
 
-<h3 id="2-安裝-xdebug">2. 安裝 Xdebug</h3>
+<h2 id="2-安裝-xdebug">2. 安裝 Xdebug</h2>
 
 <p>因為 Xdebug 目前最新的 stable 版本 2.5.5 還不支援 PHP 7.2，所以要指定安裝為 beta 版<sup class="footnote-ref" id="fnref:4"><a href="#fn:4">4</a></sup>：</p>
 
-<pre><code class="language-bash">$ pecl install xdebug-2.6.0beta1
+<pre><code class="language-shell">$ pecl install xdebug-2.6.0beta1
 </code></pre>
 
 <p>2018-03-21 edit: 現在 Xdebug 2.6.0 的 stable 版本已經釋出，所以之後不用再指定版本了</p>
 
-<h3 id="3-再把-phpize-deps-移除以節省空間">3. 再把 <code>$PHPIZE_DEPS</code> 移除以節省空間</h3>
+<h2 id="3-再把-phpize-deps-移除以節省空間">3. 再把 <code>$PHPIZE_DEPS</code> 移除以節省空間</h2>
 
-<pre><code class="language-bash">$ apk del .build-deps
+<pre><code class="language-shell">$ apk del .build-deps
 </code></pre>
 
 <p>最後結果：</p>
@@ -84,7 +86,8 @@ $ apk del mypacks
         </div><footer>
     <span class="footer-text">Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a></span>
 </footer>
-<script src="https://bschen.tw/js/highlight.pack.js"></script>
+
+<script src="https://bschen.tw/js/highlight.pack.13389e4e093fc0b3466287ead64c1f9fc3007d7703813a413de3f046ea09a346.js" integrity="sha256-EzieTgk/wLNGYofq1kwfn8MAfXcDgTpBPePwRuoJo0Y="></script>
 <script>hljs.initHighlightingOnLoad();</script>
 </body>
 </html>
