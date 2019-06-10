@@ -3,6 +3,18 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://bschen.tw/</loc>
+    <lastmod>2018-05-06T15:28:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://bschen.tw/posts/</loc>
+    <lastmod>2018-05-06T15:28:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://bschen.tw/posts/mysql-utf8mb4/</loc>
     <lastmod>2018-05-06T15:28:00+00:00</lastmod>
   </url>
@@ -43,19 +55,7 @@
   </url>
   
   <url>
-    <loc>https://bschen.tw/</loc>
-    <lastmod>2018-05-06T15:28:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://bschen.tw/categories/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://bschen.tw/posts/</loc>
-    <lastmod>2018-05-06T15:28:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

@@ -1,0 +1,53 @@
+baseURL = "https://bschen.tw/"
+languageCode = "zh-cmn-Hant"
+title = "Bing-Sheng Chen"
+theme = "hugo-bingo"
+
+disableHugoGeneratorInject = true
+enableEmoji = true
+footnoteReturnLinkContents = "↩"
+hasCJKLanguage = true
+googleAnalytics = ""
+
+[permalinks]
+  post = "/posts/:slug/"
+
+[menu]
+
+  [[menu.main]]
+    identifier = "home"
+    name = "Home"
+    url = "/"
+    weight = 10
+
+  [[menu.main]]
+    identifier = "posts"
+    name = "Posts"
+    url = "/posts"
+    weight = 20
+
+[params]
+  themeColor = "default"
+
+  [params.gravatar]
+    email = "gundamew@gmail.com"
+
+  [[params.social]]
+    icon = "github"
+    url = "https://github.com/gundamew"
+    weight = 10
+
+  [[params.social]]
+    icon = "twitter"
+    url = "https://twitter.com/bschentw"
+    weight = 30
+
+  [[params.social]]
+    icon = "stackoverflow"
+    url = "https://stackoverflow.com/story/bschen"
+    weight = 40
+
+  [[params.social]]
+    icon = "linkedin"
+    url = "https://www.linkedin.com/in/bschen"
+    weight = 20
