@@ -1,6 +1,6 @@
 ---
 title: "ISO Week Date: A Case Study of Twitter Down"
-date: "2014-12-29 10:45:00"
+publishdate: "2014-12-29T10:45:00+08:00"
 type: "post"
 slug: "iso-week-twitter-down"
 isCJKLanguage: true

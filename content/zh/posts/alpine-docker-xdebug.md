@@ -1,6 +1,6 @@
 ---
 title: "Add Xdebug to Alpine Linux Docker Container"
-date: "2018-01-17 15:44:00"
+publishdate: "2018-01-17T15:44:00+08:00"
 type: "post"
 slug: "alpine-docker-xdebug"
 isCJKLanguage: true

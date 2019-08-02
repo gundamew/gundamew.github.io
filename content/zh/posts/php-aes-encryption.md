@@ -1,6 +1,6 @@
 ---
 title: "An AES Encryption Implementation in PHP"
-date: "2016-06-01 14:52:00"
+publishdate: "2016-06-01T14:52:00+08:00"
 type: "post"
 slug: "php-aes-encryption"
 isCJKLanguage: true

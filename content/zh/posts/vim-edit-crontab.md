@@ -1,6 +1,6 @@
 ---
 title: "Edit crontab with Vim on macOS"
-date: "2016-06-16 12:00:00"
+publishdate: "2016-06-16T12:00:00+08:00"
 type: "post"
 slug: "vim-edit-crontab"
 isCJKLanguage: true

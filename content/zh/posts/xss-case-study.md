@@ -1,6 +1,6 @@
 ---
 title: "XSS Case Study"
-date: "2014-06-27 12:00:00"
+publishdate: "2014-06-27T12:00:00+08:00"
 type: "post"
 slug: "xss-case-study"
 isCJKLanguage: true

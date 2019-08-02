@@ -1,6 +1,6 @@
 ---
 title: "Declaring Chinese Language in HTML Properly"
-date: "2017-11-23 11:19:00"
+publishdate: "2017-11-23T11:19:00+08:00"
 type: "post"
 slug: "html-zh-lang-properly"
 isCJKLanguage: true

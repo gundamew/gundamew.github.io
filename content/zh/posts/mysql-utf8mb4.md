@@ -1,6 +1,6 @@
 ---
 title: "Setting the Default Character Set and Collation to UTF-8 Properly in MySQL"
-date: "2018-05-06 15:28:00"
+publishdate: "2018-05-06T15:28:00+08:00"
 type: "post"
 slug: "mysql-utf8mb4"
 isCJKLanguage: true

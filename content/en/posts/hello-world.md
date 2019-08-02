@@ -1,6 +1,6 @@
 ---
 title: "Hello, world!"
-date: "2019-08-02 10:58:00"
+publishdate: "2019-08-02T10:58:00+08:00"
 type: "post"
 slug: "hello-world"
 isCJKLanguage: false

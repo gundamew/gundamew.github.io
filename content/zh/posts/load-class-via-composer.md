@@ -1,6 +1,6 @@
 ---
 title: "Loading Classes without Namespace via Composer"
-date: "2017-10-28 14:24:00"
+publishdate: "2017-10-28T14:24:00+08:00"
 type: "post"
 slug: "load-class-via-composer"
 isCJKLanguage: true
