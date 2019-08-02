@@ -40,10 +40,10 @@ isCJKLanguage: true
 
 ⚠️ `repositories.package` 底下，`source` 和 `dist` 根據 Composer 的安裝偏好 `preferred-install` 的設定，擇一使用即可。為了操作靈活，我就二邊都設定了
 
-最後在使用 class 時，記得在開頭加上反斜線 `/` 註明是 global class
+最後在使用 class 時，記得在開頭加上反斜線 `\` 註明是 global class
 
 ```php
-$ecpay = new /ECPay_AllInOne();
+$ecpay = new \ECPay_AllInOne();
 ```
 
 參考資料：
