@@ -9,6 +9,8 @@ footnoteReturnLinkContents = "↩"
 hasCJKLanguage = true
 googleAnalytics = ""
 
+disableKinds = ["taxonomy", "taxonomyTerm", "RSS", "sitemap", "robotsTXT"]
+
 [permalinks]
   post = "/posts/:slug/"
 
