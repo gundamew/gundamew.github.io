@@ -60,6 +60,7 @@ defaultContentLanguageInSubdir = true
 [params]
   themeColor = "default"
   dateFormat = "2006-01-02"
+  mainSections = ["post"]
 
   [params.gravatar]
     email = "gundamew@gmail.com"
