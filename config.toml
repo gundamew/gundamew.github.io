@@ -34,25 +34,25 @@ defaultContentLanguageInSubdir = true
   [[languages.en.menu.main]]
     identifier = "home"
     name = "Home"
-    url = "/en"
+    url = "/"
     weight = 10
 
   [[languages.en.menu.main]]
     identifier = "posts"
     name = "Posts"
-    url = "/en/posts"
+    url = "/posts"
     weight = 20
 
   [[languages.zh.menu.main]]
     identifier = "home"
     name = "Home"
-    url = "/"
+    url = "/zh"
     weight = 10
 
   [[languages.zh.menu.main]]
     identifier = "posts"
     name = "Posts"
-    url = "/posts"
+    url = "/zh/posts"
     weight = 20
 
 [params]
