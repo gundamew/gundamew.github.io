@@ -1,13 +1,11 @@
 baseURL = "https://bschen.tw/"
 languageCode = "zh-cmn-Hant"
-title = "Bing-Sheng Chen"
+title = "Lorem Ipsum"
 theme = "hugo-bingo"
 
-disableHugoGeneratorInject = true
 enableEmoji = true
 footnoteReturnLinkContents = "↩"
 hasCJKLanguage = true
-googleAnalytics = ""
 
 disableKinds = ["taxonomy", "taxonomyTerm", "RSS", "sitemap", "robotsTXT"]
 
@@ -36,25 +34,25 @@ defaultContentLanguageInSubdir = true
   [[languages.en.menu.main]]
     identifier = "home"
     name = "Home"
-    url = "/"
+    url = "/en"
     weight = 10
 
   [[languages.en.menu.main]]
     identifier = "posts"
     name = "Posts"
-    url = "/posts"
+    url = "/en/posts"
     weight = 20
 
   [[languages.zh.menu.main]]
     identifier = "home"
     name = "Home"
-    url = "/zh"
+    url = "/"
     weight = 10
 
   [[languages.zh.menu.main]]
     identifier = "posts"
     name = "Posts"
-    url = "/zh/posts"
+    url = "/posts"
     weight = 20
 
 [params]
@@ -63,7 +61,7 @@ defaultContentLanguageInSubdir = true
   mainSections = ["post"]
 
   [params.gravatar]
-    email = "gundamew@gmail.com"
+    email = "hi@bschen.tw"
 
   [[params.social]]
     name = "github"
@@ -71,16 +69,16 @@ defaultContentLanguageInSubdir = true
     weight = 10
 
   [[params.social]]
-    name = "twitter"
-    url = "https://twitter.com/bschentw"
-    weight = 30
+    name = "linkedin"
+    url = "https://www.linkedin.com/in/bschen"
+    weight = 20
 
   [[params.social]]
     name = "stackoverflow"
     url = "https://stackoverflow.com/story/bschen"
-    weight = 40
+    weight = 30
 
   [[params.social]]
-    name = "linkedin"
-    url = "https://www.linkedin.com/in/bschen"
-    weight = 20
+    name = "rss"
+    url = "https://blog.bschen.tw/feed"
+    weight = 40
