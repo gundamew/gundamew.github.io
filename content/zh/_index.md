@@ -2,8 +2,6 @@
 title: Home
 ---
 
-## 陳炳盛
+## An Experienced Impostor
 
-擁有五年開發經驗，注重細節的 web 後端工程師
-
-擅長使用 PHP 開發網站。以寫出安全、好讀、可測試的程式碼為己任
+Hi.
