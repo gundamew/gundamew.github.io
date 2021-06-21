@@ -60,8 +60,15 @@ defaultContentLanguageInSubdir = true
   dateFormat = "2006-01-02"
   mainSections = ["post"]
 
+  [params.avatar]
+    use = "gravatar"
+
   [params.gravatar]
     email = "hi@bschen.tw"
+    size = 240
+
+  [params.avatar.local]
+    path = "example.png"
 
   [[params.social]]
     name = "github"
